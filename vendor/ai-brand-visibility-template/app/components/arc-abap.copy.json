@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "brand": "ABAP",
+  "descriptor": "AI agents for business",
+  "eyebrow": "ABAP · AI agents for business",
+  "navigation": [
+    "Agents",
+    "Method",
+    "Work",
+    "About",
+    "Contact"
+  ],
+  "primary_cta": "Book a demo",
+  "secondary_cta": "See an agent at work",
+  "hero": {
+    "heading_prefix": "Agents trained for",
+    "heading_options": [
+      "support",
+      "sales",
+      "finance",
+      "operations"
+    ],
+    "subheading": "We build AI agents that arrive trained on your work and ready on day one.",
+    "closing": "Ready to work for you."
+  },
+  "loop": {
+    "duration_seconds": 36,
+    "phases": [
+      {
+        "id": "brief",
+        "number": "01",
+        "title": "Brief",
+        "start": 0,
+        "end": 4,
+        "caption": "You describe the job.",
+        "poster": "Agents trained for [support ▾]."
+      },
+      {
+        "id": "build",
+        "number": "02",
+        "title": "Build",
+        "start": 4,
+        "end": 10,
+        "caption": "We code the agent around your systems.",
+        "poster": "Millions of details. One clear job."
+      },
+      {
+        "id": "train",
+        "number": "03",
+        "title": "Train",
+        "start": 10,
+        "end": 18,
+        "caption": "It practises on your real cases.",
+        "poster": "Trained until the work feels easy."
+      },
+      {
+        "id": "trace",
+        "number": "04",
+        "title": "Trace",
+        "start": 18,
+        "end": 25,
+        "caption": "Every decision is logged and explainable.",
+        "poster": "Every decision, traceable."
+      },
+      {
+        "id": "test",
+        "number": "05",
+        "title": "Test",
+        "start": 25,
+        "end": 31,
+        "caption": "It is checked against your edge cases.",
+        "poster": "Seen from every angle, it holds."
+      },
+      {
+        "id": "deploy",
+        "number": "06",
+        "title": "Deploy",
+        "start": 31,
+        "end": 36,
+        "caption": "It starts work. We keep coaching.",
+        "poster": "Same foundation. A different job."
+      }
+    ],
+    "lanes": [
+      {
+        "name": "Support",
+        "lane": 3
+      },
+      {
+        "name": "Finance",
+        "lane": 4
+      },
+      {
+        "name": "Operations",
+        "lane": 5
+      }
+    ],
+    "target_fov_degrees": [
+      36,
+      42
+    ],
+    "follow_smoothing_seconds": 0.4,
+    "loop_seam_seconds": [
+      35,
+      36
+    ],
+    "demo_metrics": [
+      "Tasks per hour: [X]",
+      "Accuracy: [X]",
+      "Response time: [X]"
+    ]
+  },
+  "statement": {
+    "heading": "Complexity in. Simplicity out.",
+    "body": "Most work is a thousand small steps nobody wrote down. We write them down, in code, and train an agent to run them. You get the simplicity. We keep the complexity."
+  },
+  "agents": {
+    "heading": "One foundation. A different job for each team.",
+    "entries": [
+      {
+        "team": "Support",
+        "description": "Answers customers from your policies and hands off anything it shouldn't decide."
+      },
+      {
+        "team": "Finance",
+        "description": "Reads invoices, matches them to orders and flags what doesn't add up."
+      },
+      {
+        "team": "Sales",
+        "description": "Qualifies inbound leads and drafts the first reply for your team."
+      },
+      {
+        "team": "Operations",
+        "description": "Watches your queues and moves routine work along."
+      }
+    ]
+  },
+  "method": {
+    "heading": "How an agent gets ready",
+    "steps": [
+      {
+        "title": "Brief",
+        "description": "We start with one job and one measure of success."
+      },
+      {
+        "title": "Build",
+        "description": "We code the agent around your tools and data."
+      },
+      {
+        "title": "Train",
+        "description": "It practises on your real cases until it is reliable."
+      },
+      {
+        "title": "Trace",
+        "description": "You can see what it did and why."
+      },
+      {
+        "title": "Test",
+        "description": "We try to break it before your customers do."
+      },
+      {
+        "title": "Deploy",
+        "description": "It goes to work, and we keep coaching it."
+      }
+    ],
+    "closing": "Same foundation. A different job."
+  },
+  "control": {
+    "heading": "You stay in charge.",
+    "lines": [
+      "Every action is logged.",
+      "Every decision can be explained.",
+      "Anything risky waits for a person."
+    ],
+    "body": "You set what the agent can see, what it can do and when it must ask.",
+    "qualification": "[Add only what is true today: data location, ISO 27001, GDPR, EU AI Act readiness.]"
+  },
+  "work": {
+    "label": "Showing the latest 6 agents at work",
+    "entries": [
+      {
+        "name": "[Client]",
+        "description": "Answers [X]% of support tickets without a handoff.",
+        "sector": "Retail"
+      },
+      {
+        "name": "[Client]",
+        "description": "Matches [X] invoices a day and flags the exceptions.",
+        "sector": "Finance"
+      },
+      {
+        "name": "[Client]",
+        "description": "Qualifies inbound leads in [X] minutes.",
+        "sector": "Sales"
+      },
+      {
+        "name": "[Client]",
+        "description": "Routes [X] orders a day and escalates delays.",
+        "sector": "Logistics"
+      }
+    ],
+    "more": "Load more",
+    "verification": "Illustrative copy only. Client names, case studies and metrics are not verified."
+  },
+  "start": {
+    "heading": "Start with one job.",
+    "options": [
+      {
+        "title": "Workshop",
+        "description": "Learn what agents can do for your team. [Half a day.] From €[X]."
+      },
+      {
+        "title": "Pilot",
+        "description": "One agent, one job, one measurable outcome. [X] weeks."
+      },
+      {
+        "title": "Partnership",
+        "description": "A team of agents, coached over time."
+      }
+    ],
+    "line": "Not every job needs an agent. If yours doesn't, we'll say so."
+  },
+  "faq": {
+    "entries": [
+      {
+        "question": "What is an AI agent?",
+        "answer": "Software that takes on a job, not just a question. It reads, decides and acts inside your tools, within limits you set."
+      },
+      {
+        "question": "How is it different from a chatbot?",
+        "answer": "A chatbot answers. An agent does the work: it checks the order, drafts the reply and asks when it isn't sure."
+      },
+      {
+        "question": "What does \"trained\" mean?",
+        "answer": "It practises on your documents, policies and past cases, then is tested against edge cases before it touches live work. [Describe your real method.]"
+      },
+      {
+        "question": "Where does our data go?",
+        "answer": "[Region and hosting.] You choose what the agent can see. [Confirm any \"never used to train other clients' agents\" claim before publishing.]"
+      },
+      {
+        "question": "What if it makes a mistake?",
+        "answer": "It works within limits you set, risky actions wait for approval, and every action is logged so you can see what happened and fix it."
+      },
+      {
+        "question": "How long until the first agent works?",
+        "answer": "[X weeks] from brief to first live job, depending on your systems."
+      },
+      {
+        "question": "Do we need to change our tools?",
+        "answer": "No. The agent connects to the tools you already use. [List real integrations.]"
+      }
+    ]
+  },
+  "about": {
+    "body": "ABAP is a team of engineers who build AI agents for business. We code, we train, we stay.",
+    "placeholders": "[Founded · team size · location]"
+  },
+  "closing": {
+    "heading": "Ready to work for you.",
+    "body": "Tell us about the job. We'll show you the agent.",
+    "primary_cta": "Book a demo",
+    "secondary_cta": "Write to us"
+  },
+  "form": {
+    "labels": [
+      "Name",
+      "Work email",
+      "What should the agent do?"
+    ],
+    "hint": "For example: answer first-line support tickets",
+    "submit": "Send the brief",
+    "sending": "Sending your brief…",
+    "success": "Thanks, we've got your brief. We'll reply within [1] business day.",
+    "errors": {
+      "email": "That email doesn't look right. Check for a typo, like a missing @, and try again.",
+      "empty": "Tell us about the job in a sentence or two so we can prepare.",
+      "failed": "We couldn't send your brief. Check your connection and try again, or write to [email]."
+    }
+  },
+  "footer": {
+    "brand": "ABAP — AI agents for business",
+    "navigation": [
+      "Agents",
+      "Method",
+      "Work",
+      "About",
+      "Contact"
+    ],
+    "contact": "[email] · [city, country]",
+    "legal": [
+      "Privacy",
+      "Terms"
+    ],
+    "year": "© 2026 ABAP",
+    "languages": [
+      "EN",
+      "NL",
+      "PT"
+    ]
+  },
+  "localization": {
+    "pt_br_beats": [
+      "Agentes treinados para [suporte ▾].",
+      "Milhões de detalhes. Uma função clara.",
+      "Treinado até o trabalho parecer fácil.",
+      "Cada decisão, rastreável.",
+      "De qualquer ângulo, ele se sustenta.",
+      "Mesma base. Outra função."
+    ],
+    "pt_br_closing": "Pronto para trabalhar para você.",
+    "pt_br_primary_cta": "Agendar demonstração",
+    "pt_br_secondary_cta": "Ver um agente em ação",
+    "pt_br_options": [
+      "Suporte",
+      "Vendas",
+      "Finanças",
+      "Operações"
+    ]
+  },
+  "prohibited_unsubstantiated": [
+    "AI-powered",
+    "cutting-edge",
+    "seamless",
+    "revolutionary",
+    "unlock"
+  ]
+}

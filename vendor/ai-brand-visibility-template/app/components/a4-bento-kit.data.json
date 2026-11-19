@@ -1,0 +1,475 @@
+{
+  "version": "1.0.0",
+  "system": "A4 Bento CleanSea",
+  "source_of_truth": "content/cards.json",
+  "locale": "pt-PT",
+  "card_count": 27,
+  "field_count": 108,
+  "fields_per_card": [
+    "title",
+    "subtitle",
+    "status",
+    "action_label"
+  ],
+  "cards": [
+    {
+      "card_id": "A-01",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 1,
+      "role": "meso",
+      "geometry_slot": "MESO-L",
+      "fields": {
+        "title": "Painel",
+        "subtitle": "Navios / ETA",
+        "status": "Ativas",
+        "action_label": "Novo"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-02",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 2,
+      "role": "macro",
+      "geometry_slot": "MACRO",
+      "fields": {
+        "title": "Operação",
+        "subtitle": "Navio selecionado",
+        "status": "Equipa · Etapas",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-03",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 3,
+      "role": "meso",
+      "geometry_slot": "MESO-R",
+      "fields": {
+        "title": "Agenda",
+        "subtitle": "Janela / ETA",
+        "status": "Em fila",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-04",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 4,
+      "role": "micro",
+      "geometry_slot": "MICRO-1",
+      "fields": {
+        "title": "ETA",
+        "subtitle": "Chegada",
+        "status": "Previsto",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-05",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 5,
+      "role": "micro",
+      "geometry_slot": "MICRO-2",
+      "fields": {
+        "title": "Navio",
+        "subtitle": "Dados",
+        "status": "Confirmado",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-06",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 6,
+      "role": "micro",
+      "geometry_slot": "MICRO-3",
+      "fields": {
+        "title": "Equipa",
+        "subtitle": "Pessoas",
+        "status": "Disponível",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-07",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 7,
+      "role": "micro",
+      "geometry_slot": "MICRO-4",
+      "fields": {
+        "title": "Rota",
+        "subtitle": "Percurso",
+        "status": "Definido",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-08",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 8,
+      "role": "micro",
+      "geometry_slot": "MICRO-5",
+      "fields": {
+        "title": "Risco",
+        "subtitle": "Segurança",
+        "status": "Revisão",
+        "action_label": "Avaliar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "A-09",
+      "face_id": "A",
+      "section": "Planeamento",
+      "slot": 9,
+      "role": "micro",
+      "geometry_slot": "MICRO-6",
+      "fields": {
+        "title": "Avisos",
+        "subtitle": "Eventos",
+        "status": "Sem alertas",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-01",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 1,
+      "role": "meso",
+      "geometry_slot": "MESO-L",
+      "fields": {
+        "title": "Tarefas",
+        "subtitle": "Plano ativo",
+        "status": "Checklist",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-02",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 2,
+      "role": "macro",
+      "geometry_slot": "MACRO",
+      "fields": {
+        "title": "Recolha",
+        "subtitle": "Em execução",
+        "status": "Equipa · Etapas",
+        "action_label": "Iniciar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-03",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 3,
+      "role": "meso",
+      "geometry_slot": "MESO-R",
+      "fields": {
+        "title": "Recursos",
+        "subtitle": "Equipamentos",
+        "status": "Disponíveis",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-04",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 4,
+      "role": "micro",
+      "geometry_slot": "MICRO-1",
+      "fields": {
+        "title": "Etapas",
+        "subtitle": "Processo",
+        "status": "Em curso",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-05",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 5,
+      "role": "micro",
+      "geometry_slot": "MICRO-2",
+      "fields": {
+        "title": "Equipa",
+        "subtitle": "Turnos",
+        "status": "Alocada",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-06",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 6,
+      "role": "micro",
+      "geometry_slot": "MICRO-3",
+      "fields": {
+        "title": "MTR",
+        "subtitle": "Documento",
+        "status": "Pendente",
+        "action_label": "Emitir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-07",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 7,
+      "role": "micro",
+      "geometry_slot": "MICRO-4",
+      "fields": {
+        "title": "Carga",
+        "subtitle": "Volume",
+        "status": "Estimado",
+        "action_label": "Medir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-08",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 8,
+      "role": "micro",
+      "geometry_slot": "MICRO-5",
+      "fields": {
+        "title": "Tempo",
+        "subtitle": "Duração",
+        "status": "Em curso",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "B-09",
+      "face_id": "B",
+      "section": "Operação",
+      "slot": 9,
+      "role": "micro",
+      "geometry_slot": "MICRO-6",
+      "fields": {
+        "title": "Prova",
+        "subtitle": "Evidência",
+        "status": "Em análise",
+        "action_label": "Anexar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-01",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 1,
+      "role": "meso",
+      "geometry_slot": "MESO-L",
+      "fields": {
+        "title": "Relatório",
+        "subtitle": "Resumo final",
+        "status": "Pronto",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-02",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 2,
+      "role": "macro",
+      "geometry_slot": "MACRO",
+      "fields": {
+        "title": "Execução",
+        "subtitle": "Verificação final",
+        "status": "Checklist · MTR",
+        "action_label": "Concluir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-03",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 3,
+      "role": "meso",
+      "geometry_slot": "MESO-R",
+      "fields": {
+        "title": "Aprovação",
+        "subtitle": "Responsável",
+        "status": "Pendente",
+        "action_label": "Validar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-04",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 4,
+      "role": "micro",
+      "geometry_slot": "MICRO-1",
+      "fields": {
+        "title": "Estado",
+        "subtitle": "Progresso",
+        "status": "Finalizado",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-05",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 5,
+      "role": "micro",
+      "geometry_slot": "MICRO-2",
+      "fields": {
+        "title": "Qualidade",
+        "subtitle": "Inspeção",
+        "status": "Conforme",
+        "action_label": "Validar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-06",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 6,
+      "role": "micro",
+      "geometry_slot": "MICRO-3",
+      "fields": {
+        "title": "Registo",
+        "subtitle": "Histórico",
+        "status": "Guardado",
+        "action_label": "Abrir"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-07",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 7,
+      "role": "micro",
+      "geometry_slot": "MICRO-4",
+      "fields": {
+        "title": "Custos",
+        "subtitle": "Resumo",
+        "status": "Calculado",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-08",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 8,
+      "role": "micro",
+      "geometry_slot": "MICRO-5",
+      "fields": {
+        "title": "Entrega",
+        "subtitle": "Destino",
+        "status": "Confirmado",
+        "action_label": "Ver"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    },
+    {
+      "card_id": "C-09",
+      "face_id": "C",
+      "section": "Fecho",
+      "slot": 9,
+      "role": "micro",
+      "geometry_slot": "MICRO-6",
+      "fields": {
+        "title": "Arquivo",
+        "subtitle": "Documentos",
+        "status": "Completo",
+        "action_label": "Fechar"
+      },
+      "compact": {},
+      "action_type": "inspect",
+      "target_card_id": ""
+    }
+  ]
+}

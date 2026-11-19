@@ -1,0 +1,64 @@
+@import "tailwindcss" source(".");
+
+@theme {
+	/* Cloudflare/Kumo tokens mapped to the workspace source of truth. */
+	--color-canvas: var(--loop-canvas);
+	--color-surface: var(--loop-surface);
+	--color-surface-secondary: #fcfcfc;
+	--color-elevated: #fafafa;
+	--color-tint: #f5f5f5;
+	--color-brand: var(--loop-brand);
+	--color-brand-hover: var(--loop-brand-hover);
+	--color-ring: rgba(10, 10, 10, 0.1);
+	--color-success: #16a34a;
+	--color-success-tint: #d1fae5;
+	--color-danger: #b91c1c;
+	--color-danger-tint: #fee2e2;
+	--color-info-tint: #dbeafe;
+	--color-warning-tint: #fefce8;
+	--color-violet-bg: #ede9fe;
+	--color-violet: #5b21b6;
+
+	--font-sans:
+		ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html,
+body {
+	@apply bg-canvas text-neutral-900 antialiased;
+	font-size: 14px;
+	line-height: 1.43;
+}
+
+/* Dot grid background */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background-image: radial-gradient(circle, #a3a3a3 0.6px, transparent 0.6px);
+	background-size: 24px 24px;
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+/* One design-token contract for React Router and the six migrated projects. */
+:root {
+  --loop-canvas: #fafafa;
+  --loop-surface: #ffffff;
+  --loop-ink: #171717;
+  --loop-muted: #737373;
+  --loop-border: #e5e5e5;
+  --loop-brand: #046cfe;
+  --loop-brand-hover: #1347e5;
+  --loop-radius: 12px;
+  --loop-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --loop-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.loop-global-header { font-family: var(--loop-font); }
+.loop-project-page { min-height: calc(100vh - 58px); }
+.loop-project-breadcrumb { display:flex;align-items:center;gap:10px;min-height:42px;padding:8px 16px;background:var(--loop-surface);border-bottom:1px solid var(--loop-border);font-family:var(--loop-font); }
+.loop-project-runtime { min-width:0; width:100%; min-height:calc(100vh - 100px); background:var(--loop-canvas); color:var(--loop-ink); font-family:var(--loop-font); overflow:hidden; }
+.loop-project-content { isolation:isolate; min-height:calc(100vh - 100px); }
+@media print { .loop-global-header, .loop-project-breadcrumb { display:none!important; } .loop-project-runtime { overflow:visible; } }

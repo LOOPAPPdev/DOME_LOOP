@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "page": {
+    "width_mm": 210,
+    "height_mm": 297,
+    "faces": 3,
+    "face_height_mm": 99,
+    "margin_mm": 10,
+    "gap_mm": 4,
+    "columns": 6,
+    "rows": 3
+  },
+  "faces": [
+    {
+      "name": "FACE A",
+      "section": "Planeamento",
+      "cards": [
+        [
+          "Painel",
+          "Navios / ETA",
+          "Ativas",
+          "Novo"
+        ],
+        [
+          "Operação",
+          "Navio selecionado",
+          "Equipa · Etapas",
+          "Abrir"
+        ],
+        [
+          "Agenda",
+          "Janela / ETA",
+          "Em fila",
+          "Ver"
+        ],
+        [
+          "ETA",
+          "Chegada",
+          "Previsto",
+          "Ver"
+        ],
+        [
+          "Navio",
+          "Dados",
+          "Confirmado",
+          "Abrir"
+        ],
+        [
+          "Equipa",
+          "Pessoas",
+          "Disponível",
+          "Ver"
+        ],
+        [
+          "Rota",
+          "Percurso",
+          "Definido",
+          "Ver"
+        ],
+        [
+          "Risco",
+          "Segurança",
+          "Revisão",
+          "Avaliar"
+        ],
+        [
+          "Avisos",
+          "Eventos",
+          "Sem alertas",
+          "Ver"
+        ]
+      ]
+    },
+    {
+      "name": "FACE B",
+      "section": "Operação",
+      "cards": [
+        [
+          "Tarefas",
+          "Plano ativo",
+          "Checklist",
+          "Abrir"
+        ],
+        [
+          "Recolha",
+          "Em execução",
+          "Equipa · Etapas",
+          "Iniciar"
+        ],
+        [
+          "Recursos",
+          "Equipamentos",
+          "Disponíveis",
+          "Ver"
+        ],
+        [
+          "Etapas",
+          "Processo",
+          "Em curso",
+          "Abrir"
+        ],
+        [
+          "Equipa",
+          "Turnos",
+          "Alocada",
+          "Ver"
+        ],
+        [
+          "MTR",
+          "Documento",
+          "Pendente",
+          "Emitir"
+        ],
+        [
+          "Carga",
+          "Volume",
+          "Estimado",
+          "Medir"
+        ],
+        [
+          "Tempo",
+          "Duração",
+          "Em curso",
+          "Ver"
+        ],
+        [
+          "Prova",
+          "Evidência",
+          "Em análise",
+          "Anexar"
+        ]
+      ]
+    },
+    {
+      "name": "FACE C",
+      "section": "Fecho",
+      "cards": [
+        [
+          "Relatório",
+          "Resumo final",
+          "Pronto",
+          "Abrir"
+        ],
+        [
+          "Execução",
+          "Verificação final",
+          "Checklist · MTR",
+          "Concluir"
+        ],
+        [
+          "Aprovação",
+          "Responsável",
+          "Pendente",
+          "Validar"
+        ],
+        [
+          "Estado",
+          "Progresso",
+          "Finalizado",
+          "Ver"
+        ],
+        [
+          "Qualidade",
+          "Inspeção",
+          "Conforme",
+          "Validar"
+        ],
+        [
+          "Registo",
+          "Histórico",
+          "Guardado",
+          "Abrir"
+        ],
+        [
+          "Custos",
+          "Resumo",
+          "Calculado",
+          "Ver"
+        ],
+        [
+          "Entrega",
+          "Destino",
+          "Confirmado",
+          "Ver"
+        ],
+        [
+          "Arquivo",
+          "Documentos",
+          "Completo",
+          "Fechar"
+        ]
+      ]
+    }
+  ]
+}

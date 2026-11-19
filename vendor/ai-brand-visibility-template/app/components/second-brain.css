@@ -1,0 +1,106 @@
+/* Second Brain inherits LOOPAPP design tokens and does not affect other projects. */
+#prompt-bento-app .pb-workspace-modes{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--loop-border)}
+#prompt-bento-app .pb-workspace-modes button[aria-pressed="true"]{background:color-mix(in srgb,var(--loop-brand) 12%,white);border-color:var(--loop-brand);font-weight:650}
+#prompt-bento-app .sb-app{color:var(--loop-ink);font-family:var(--loop-font);min-width:0}
+#prompt-bento-app .sb-app *{box-sizing:border-box}
+#prompt-bento-app .sb-heading{display:flex;align-items:start;justify-content:space-between;gap:12px;margin:4px 0 18px}
+#prompt-bento-app .sb-heading h2{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:0}
+#prompt-bento-app .sb-heading p{font-size:12px;color:var(--loop-muted);margin:6px 0}
+#prompt-bento-app .sb-total{font:11px var(--loop-mono);color:var(--loop-muted);border:1px solid var(--loop-border);border-radius:20px;padding:6px 9px;white-space:nowrap}
+#prompt-bento-app .sb-actions{display:flex;flex-wrap:wrap;align-items:end;gap:8px;padding-bottom:15px;border-bottom:1px solid var(--loop-border)}
+#prompt-bento-app .sb-actions button,#prompt-bento-app .sb-reader button,#prompt-bento-app .sb-page button{min-height:38px;font-size:12px}
+#prompt-bento-app .sb-app .sb-primary{border-color:var(--loop-brand);background:color-mix(in srgb,var(--loop-brand) 11%,white);font-weight:600}
+#prompt-bento-app .sb-new-kind{display:flex;flex:0 1 140px;flex-direction:column;gap:4px;font-size:11px;color:var(--loop-muted)}
+#prompt-bento-app .sb-new-kind select{min-height:38px;font-size:13px;border:1px solid var(--loop-border);border-radius:8px;background:var(--loop-surface);padding:7px}
+#prompt-bento-app .sb-filters{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}
+#prompt-bento-app .sb-filters button{font-size:12px;display:flex;align-items:center;gap:9px;min-height:38px}
+#prompt-bento-app .sb-filters button[aria-pressed="true"],#prompt-bento-app .sb-reader-tabs button[aria-pressed="true"]{background:var(--loop-ink);color:var(--loop-surface);border-color:var(--loop-ink)}
+#prompt-bento-app .sb-filters button span{font:11px var(--loop-mono);opacity:.7}
+#prompt-bento-app .sb-search{display:flex;flex-direction:column;gap:5px;color:var(--loop-muted);font-size:12px;margin-bottom:14px}
+#prompt-bento-app .sb-search input{width:100%;font-size:16px;min-height:40px}
+#prompt-bento-app .sb-workspace{display:grid;grid-template-columns:minmax(0,.73fr) minmax(0,1.27fr);gap:14px;align-items:start}
+#prompt-bento-app .sb-list,#prompt-bento-app .sb-reader{min-width:0;border:1px solid var(--loop-border);background:var(--loop-surface);border-radius:11px;overflow:hidden}
+#prompt-bento-app .sb-list{max-height:670px;overflow-y:auto;display:flex;flex-direction:column;align-items:stretch}
+#prompt-bento-app .sb-list button.sb-list-item{display:flex;flex-direction:column;gap:7px;text-align:left;align-items:stretch;padding:13px;border:0;border-radius:0;border-bottom:1px solid var(--loop-border);min-height:72px}
+#prompt-bento-app .sb-list-item[aria-pressed="true"]{background:color-mix(in srgb,var(--loop-brand) 8%,white);box-shadow:inset 3px 0 var(--loop-brand)}
+#prompt-bento-app .sb-list-title{font-size:13px;font-weight:650;overflow-wrap:anywhere}
+#prompt-bento-app .sb-list-meta{display:flex;justify-content:space-between;gap:7px;color:var(--loop-muted);font:11px var(--loop-mono)}
+#prompt-bento-app .sb-reader{padding:15px;min-height:290px}
+#prompt-bento-app .sb-reader-head{display:flex;align-items:start;gap:9px;justify-content:space-between;flex-wrap:wrap}
+#prompt-bento-app .sb-reader-head h3{font-size:18px;font-weight:700;line-height:1.3;margin:4px 0 12px;overflow-wrap:anywhere}
+#prompt-bento-app .sb-type{font:11px var(--loop-mono);color:#17803d}
+#prompt-bento-app .sb-reader-tabs{display:flex;gap:5px;margin-bottom:12px}
+#prompt-bento-app .sb-reader-tabs button{font-size:12px}
+#prompt-bento-app .sb-reader-body{border:1px solid var(--loop-border);border-radius:9px;min-height:150px;overflow:hidden}
+#prompt-bento-app .sb-reader-actions{display:flex;flex-wrap:wrap;gap:7px;padding-top:13px}
+#prompt-bento-app .sb-reader .sb-danger{color:#a33218}
+#prompt-bento-app .sb-empty{padding:22px 12px;color:var(--loop-muted);font-size:12px;line-height:1.5;margin:0}
+#prompt-bento-app .sb-status{min-height:18px;font-size:12px;color:var(--loop-ink);margin:12px 0 5px;overflow-wrap:anywhere}
+#prompt-bento-app .sb-storage-note{font-size:11px;color:var(--loop-muted);margin:14px 0 0;line-height:1.55}
+#prompt-bento-app .sb-confirm{border:1px solid #fbb5a7;border-radius:8px;padding:10px;margin-top:10px;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12px}
+#prompt-bento-app .sb-confirm span{flex:1 1 150px}
+#prompt-bento-app .sb-reader .sb-confirm .sb-danger{border-color:#b91c1c}
+#prompt-bento-app .sb-source{white-space:pre-wrap;overflow-wrap:anywhere;max-height:500px;overflow:auto;font:12px/1.6 var(--loop-mono);padding:15px;margin:0;background:#fafafa;color:#171717;user-select:text}
+#prompt-bento-app .sb-markdown{padding:16px;font-size:13px;line-height:1.7;overflow-wrap:anywhere;color:var(--loop-ink);max-height:600px;overflow:auto}
+#prompt-bento-app .sb-markdown p{margin:8px 0 14px}
+#prompt-bento-app .sb-markdown .sb-h1{font-size:24px}
+#prompt-bento-app .sb-markdown .sb-h2{font-size:20px}
+#prompt-bento-app .sb-markdown .sb-h3{font-size:17px}
+#prompt-bento-app .sb-markdown .sb-h4,#prompt-bento-app .sb-markdown .sb-h5,#prompt-bento-app .sb-markdown .sb-h6{font-size:14px}
+#prompt-bento-app .sb-markdown h3{font-weight:700;line-height:1.4;margin:16px 0 10px}
+#prompt-bento-app .sb-markdown ul{list-style:disc;padding-left:24px;margin:10px 0}
+#prompt-bento-app .sb-markdown ol{list-style:decimal;padding-left:24px;margin:10px 0}
+#prompt-bento-app .sb-markdown li{margin:4px 0}
+#prompt-bento-app .sb-markdown blockquote{border-left:3px solid var(--loop-brand);padding:8px 12px;color:var(--loop-muted);background:var(--loop-canvas);margin:12px 0}
+#prompt-bento-app .sb-markdown hr{border:0;border-top:1px solid var(--loop-border);margin:18px 0}
+#prompt-bento-app .sb-markdown a{color:var(--loop-brand);text-decoration:underline}
+#prompt-bento-app .sb-markdown code{font-family:var(--loop-mono);font-size:12px;background:#f4f4f4;padding:1px 4px;border-radius:4px}
+#prompt-bento-app .sb-code{background:#f7f7f7;border:1px solid var(--loop-border);border-radius:7px;overflow:hidden;margin:11px 0}
+#prompt-bento-app .sb-code>span{display:block;padding:6px 10px;color:var(--loop-muted);font:10px var(--loop-mono);border-bottom:1px solid var(--loop-border)}
+#prompt-bento-app .sb-code pre{margin:0;padding:11px;overflow:auto;white-space:pre;font:12px/1.5 var(--loop-mono)}
+#prompt-bento-app .sb-scroll{max-width:100%;overflow:auto}
+#prompt-bento-app .sb-scroll:focus-visible{outline:2px solid var(--loop-brand);outline-offset:-2px}
+#prompt-bento-app .sb-table{border-collapse:separate;border-spacing:0;table-layout:auto;min-width:max-content;width:100%;font:12px/1.5 var(--loop-font)}
+#prompt-bento-app .sb-table th,#prompt-bento-app .sb-table td{min-width:115px;max-width:340px;padding:9px 12px;border-right:1px solid var(--loop-border);border-bottom:1px solid var(--loop-border);vertical-align:top;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere}
+#prompt-bento-app .sb-table thead th{background:#f4f4f5;position:sticky;top:0;z-index:2;font-weight:700}
+#prompt-bento-app .sb-sheet-table tbody th{position:sticky;left:0;background:#fafafa;min-width:38px;width:38px;font:11px var(--loop-mono);color:var(--loop-muted)}
+#prompt-bento-app .sb-sheet-table thead th:first-child{position:sticky;left:0;z-index:3;width:38px;min-width:38px}
+#prompt-bento-app .sb-sheet .sb-scroll{max-height:500px}
+#prompt-bento-app .sb-sheet-top,#prompt-bento-app .sb-page{padding:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--loop-muted);font-size:11px}
+#prompt-bento-app .sb-sheet-top input{width:min(230px,100%);min-height:36px;font-size:13px}
+#prompt-bento-app .sb-page div{display:flex;gap:4px}
+#prompt-bento-app .sb-flow{padding:12px}
+#prompt-bento-app .sb-flow-svg{display:block;width:100%;height:auto;max-height:500px;min-height:130px;overflow:visible}
+#prompt-bento-app .sb-flow details{margin-top:10px;color:var(--loop-muted);font-size:11px}
+#prompt-bento-app .sb-flow details ul{padding-left:20px;list-style:disc}
+#prompt-bento-app .sb-notice{background:#fefce8;border:1px solid #fde68a;border-radius:7px;color:#854d0e;padding:12px;font-size:12px;line-height:1.5}
+#prompt-bento-app .sb-modal{position:fixed;inset:0;z-index:140;display:flex;align-items:center;justify-content:center;background:rgba(9,18,30,.55);padding:14px}
+#prompt-bento-app .sb-editor{width:min(850px,100%);max-height:92dvh;overflow:auto;border-radius:13px;background:var(--loop-surface);border:1px solid var(--loop-border);box-shadow:0 12px 50px rgba(0,0,0,.2);padding:20px;display:flex;flex-direction:column;gap:12px}
+#prompt-bento-app .sb-editor-head,#prompt-bento-app .sb-editor-actions{display:flex;align-items:center;justify-content:space-between;gap:9px}
+#prompt-bento-app .sb-editor-head h2{font-size:19px;font-weight:700;margin:0}
+#prompt-bento-app .sb-editor p{font:11px var(--loop-mono);color:var(--loop-muted)}
+#prompt-bento-app .sb-editor label{display:flex;flex-direction:column;gap:6px;color:var(--loop-muted);font-size:12px}
+#prompt-bento-app .sb-editor input,#prompt-bento-app .sb-editor textarea{width:100%;border:1px solid var(--loop-border);border-radius:8px;background:var(--loop-surface);font-size:14px;padding:10px;color:var(--loop-ink)}
+#prompt-bento-app .sb-editor textarea{font:12px/1.6 var(--loop-mono);resize:vertical;min-height:245px}
+#prompt-bento-app .sb-app :focus-visible{outline:2px solid var(--loop-brand);outline-offset:2px}
+@media(max-width:760px){#prompt-bento-app .sb-workspace{grid-template-columns:minmax(0,1fr)}#prompt-bento-app .sb-list{max-height:260px}#prompt-bento-app .sb-reader{min-height:190px}#prompt-bento-app .sb-heading{flex-wrap:wrap}}
+@media(pointer:coarse){#prompt-bento-app .sb-app button{min-height:44px}}
+
+
+/* Knowledge-focused reading mode. Preserve the old prompt layout when it is selected. */
+#prompt-bento-app[data-section="knowledge"]:has(.sb-workspace--focus){max-width:1800px}
+#prompt-bento-app .sb-layout-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;flex-wrap:wrap}
+#prompt-bento-app .sb-layout-toolbar span{font-size:11px;color:var(--loop-muted)}
+#prompt-bento-app .sb-layout-toolbar button{font-size:12px;min-height:38px;border-color:var(--loop-border)}
+#prompt-bento-app .sb-layout-toolbar button[aria-pressed="true"]{background:color-mix(in srgb,var(--loop-brand) 9%,white);border-color:var(--loop-brand)}
+#prompt-bento-app .sb-workspace--focus{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;align-items:stretch}
+#prompt-bento-app .sb-workspace--focus .sb-list{display:flex;flex-direction:row;max-height:none;overflow-x:auto;overflow-y:hidden;gap:8px;border:0;border-radius:0;padding-bottom:4px;background:transparent;scrollbar-width:thin}
+#prompt-bento-app .sb-workspace--focus .sb-list button.sb-list-item{flex:0 0 clamp(190px,24vw,285px);min-width:0;min-height:69px;border:1px solid var(--loop-border);border-radius:9px;background:var(--loop-surface);padding:10px 13px}
+#prompt-bento-app .sb-workspace--focus .sb-list button.sb-list-item[aria-pressed="true"]{border-color:var(--loop-brand);background:#f1f6ff;box-shadow:inset 3px 0 var(--loop-brand)}
+#prompt-bento-app .sb-workspace--focus .sb-reader{width:100%;min-width:0}
+#prompt-bento-app .sb-workspace--focus .sb-reader-body{width:100%;max-width:100%}
+@media(max-width:760px){
+  #prompt-bento-app .sb-workspace--focus .sb-list button.sb-list-item{flex-basis:205px}
+  #prompt-bento-app .sb-workspace--focus .sb-reader{padding:10px}
+  #prompt-bento-app .sb-layout-toolbar{margin-bottom:9px}
+}

@@ -58,11 +58,11 @@ export function CausalCanvas({ nodes, edges, selectedNodeId, onSelectNode }: Cau
           onNodeClick={(_, node) => onSelectNode(node.id)}
           proOptions={{ hideAttribution: true }}
         >
-          <Background color="#26333a" gap={24} size={1} />
+          <Background color="#cbd5e1" gap={24} size={1} />
           <Controls showInteractive={false} />
           <MiniMap
-            maskColor="rgba(7, 16, 25, 0.74)"
-            nodeColor={(node) => node.data?.status === "supported" ? "#6de0d0" : "#e8ad72"}
+            maskColor="rgba(250, 250, 250, 0.72)"
+            nodeColor={(node) => node.data?.status === "supported" ? "#046cfe" : "#d97706"}
           />
         </ReactFlow>
         <div className="graph-note">

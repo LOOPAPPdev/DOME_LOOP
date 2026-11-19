@@ -12,6 +12,7 @@ export function AppHeader({ confidence }: AppHeaderProps) {
         <div>
           <p className="eyebrow">LOOP DYNAMICS / MANUS</p>
           <h1>Evidence console</h1>
+          <p className="header-subtitle">Systems analysis with traceable evidence and explicit uncertainty.</p>
         </div>
       </div>
       <div className="header-meta">

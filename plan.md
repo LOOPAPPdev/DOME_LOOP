@@ -6,15 +6,15 @@ Add a reviewable React + TypeScript interface to the existing offline-first Pyth
 
 ## Design
 
-Three candidate styles were considered: **Evidence Console** (0.04): dark observability workspace with source rails and graph canvas; **Research Notebook** (0.07): warm paper-like analysis surface; **Control Room** (0.05): bright operational dashboard. Choose **Evidence Console** because it makes provenance and uncertainty primary while supporting a dense causal diagram.
+Three candidate styles were considered: **Evidence Console** (0.04): dark observability workspace with source rails and graph canvas; **Research Notebook** (0.07): warm paper-like analysis surface; **Control Room** (0.05): bright operational dashboard. The supplied `ai-brand-visibility-template/app` is the confirmed reference, so the default page now uses its light Cloudflare/Kumo design language while retaining the Evidence Console information architecture.
 
-The design movement is editorial data-visualization fused with a restrained observability console. Core principles are provenance-first hierarchy, deliberate density, calm uncertainty, and graph-led exploration. The color philosophy uses near-black navy as the research substrate, warm off-white for readable analysis text, cyan for verified evidence, amber for hypotheses, and coral only for warnings or blocked simulation gates. The layout is an asymmetric two-rail workspace: a compact evidence rail, a large causal canvas, and a right-side analysis rail rather than a centered dashboard grid.
+The design movement is editorial data-visualization fused with Cloudflare/Kumo's calm product surfaces. Core principles are provenance-first hierarchy, deliberate density, calm uncertainty, and graph-led exploration. The color philosophy uses a near-white canvas, white rounded surfaces, Cloudflare blue for actions and supported evidence, amber for hypotheses, and neutral ink for readable analysis text. The layout is an asymmetric two-rail workspace: a compact evidence rail, a large causal canvas, and a right-side analysis rail rather than a centered dashboard grid.
 
 Signature elements are a numbered evidence rail, a causal graph with polarity badges, and a persistent status strip showing `simulation: not_performed` until formal model gates pass. Interactions filter evidence, focus a node, reveal supporting quotes, and clearly distinguish supported edges from hypotheses. Motion is limited to quick graph focus transitions and subtle status fades; no decorative animation competes with analysis. Typography uses IBM Plex Sans for UI and IBM Plex Mono for IDs, confidence values, and citations. Brand essence: a transparent systems-thinking workbench for analysts who need to reason with evidence, not fluent guesses. Voice is precise, candid, and audit-friendly: “Trace the mechanism before proposing the intervention.” and “No validated model attached — simulation not performed.”
 
 ## Implementation approach
 
-Create `frontend/` as a Vite React TypeScript application. Keep the frontend independent from the Python package so both can evolve and CI can run each toolchain natively. Use React Flow for the causal diagram, local typed fixtures for the initial screen, and a small adapter boundary for the future FastAPI `/analysis` contract. Avoid embedding private source data or generated indexes in the browser bundle.
+Create `frontend/` as a Vite React TypeScript application. Keep the frontend independent from the Python package so both can evolve and CI can run each toolchain natively. Use React Flow for the causal diagram, local typed fixtures for the initial screen, and a small adapter boundary for the future FastAPI `/analysis` contract. Use the supplied template's `app/` directory as a vendored design reference and adapt its tokens and surface primitives into plain CSS so no incompatible React Router/Tailwind runtime is introduced. Avoid embedding private source data or generated indexes in the browser bundle.
 
 Add `frontend/public/manus-routes.json` with the root route declaration, a frontend-specific `package.json`, `tsconfig` files, Vite config, and source modules for the app shell, graph data, evidence panel, and styles. Add `frontend/src/test` only when a test runner is introduced; the first CI contract is strict TypeScript plus production build. Add a `frontend/.gitignore` only if root rules cannot cover it.
 
@@ -29,6 +29,8 @@ Extend `.github/workflows/ci.yml` with separate `backend` and `frontend` jobs. B
 - `src/loop_rag/`: existing Python ingestion/retrieval pipeline.
 - `.github/workflows/ci.yml`: backend, frontend, and schema validation gates.
 - `docs/FRONTEND.md`: frontend contract and future API integration notes.
+- `vendor/ai-brand-visibility-template/app/`: cloned design-system reference from the supplied GitHub template.
+- `docs/DESIGN_SYSTEM.md`: adaptation notes and safety-preserving visual contract.
 
 ## Acceptance
 

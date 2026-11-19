@@ -7,6 +7,8 @@
 - [x] Show source evidence, chunk identifiers, quotations, confidence, and explicit simulation gating in the interface.
 - [x] Serve `GET /manus-routes.json` from the frontend origin with the complete declared page route set.
 - [x] Keep the initial UI backed by typed local fixtures and document the adapter boundary for the existing Python/FastAPI pipeline.
+- [x] Clone and preserve the supplied `ai-brand-visibility-template/app` design system under `vendor/ai-brand-visibility-template/app`.
+- [x] Rewrite the default Evidence Console page using the template's light Cloudflare/Kumo tokens, rounded surfaces, blue focus states, and responsive workspace layout.
 
 ## Automated CI/CD validation
 
@@ -21,6 +23,7 @@
 - [x] Preserve ACL filtering, chunk-level provenance, untrusted retrieved context, and explicit `simulation: not_performed` status.
 - [x] Keep candidate causal edges as hypotheses until evidence and a disconfirmation test are present.
 - [x] Add deterministic tests for evidence-found, insufficient-evidence, and intervention-routing paths.
+- [x] Run and record the complete local LangGraph orchestration workflow after the frontend redesign.
 
 ## Cloudflare Pages and private R2
 
