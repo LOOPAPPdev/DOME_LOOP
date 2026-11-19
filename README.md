@@ -30,3 +30,19 @@ The PDF was supplied by the user and is indexed for private analysis. Do not red
 ## Public branch (MANUS)
 
 This public branch contains 46 project files: Python source, schemas, tests, documentation, the architecture image, and non-sensitive verification reports. Eleven files from the original ZIP are deliberately excluded: `output/loop_knowledge.sqlite`, `output/lsa.npz`, `output/lsa.vocab.json`, `output/demo_investigation.json`, and the seven files in `output/demo_run/`. These artifacts include, quote, or derive from the copyrighted *Business Dynamics* source material. No redistribution rights were established for posting those materials to a public GitHub repository. Regenerate the indexes locally using an authorized PDF and the commands above.
+
+## Frontend Evidence Console
+
+A consola React/TypeScript fica em `frontend/` e usa React Flow para visualizar estruturas causais com distinção explícita entre relações suportadas e hipóteses. A primeira versão usa fixtures tipadas e não inclui a base privada, vetores, índices ou excertos derivados que permanecem excluídos da branch pública.
+
+```bash
+corepack enable
+pnpm install --frozen-lockfile
+pnpm --dir frontend dev
+```
+
+A interface mostra o ledger de evidências, o mapa causal, notas de análise e o gate `simulation: not performed` quando não existe um modelo formal validado. O contrato de transição para a API Python está documentado em [`docs/FRONTEND.md`](docs/FRONTEND.md).
+
+## CI/CD
+
+O workflow [`CI/CD validation`](.github/workflows/ci.yml) executa testes Python em três versões, compilação, typecheck e build do frontend, validação dos schemas públicos e, em pushes aprovados para `MANUS`, publica o bundle `frontend/dist` como artefato temporário. A pipeline não inclui bases, vetores ou índices derivados excluídos da branch pública; detalhes estão em [`docs/CI_CD.md`](docs/CI_CD.md).
