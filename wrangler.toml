@@ -1,0 +1,9 @@
+name = "loop-dynamics-console"
+compatibility_date = "2026-11-19"
+pages_build_output_dir = "frontend/dist"
+
+# The bucket remains private. Pages Functions access it through this binding;
+# the browser must never receive R2 credentials or the bucket endpoint.
+[[r2_buckets]]
+binding = "PRIVATE_FILES"
+bucket_name = "loop-dynamics-private"

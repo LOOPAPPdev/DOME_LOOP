@@ -55,3 +55,7 @@ loop-rag langgraph --db output/loop_knowledge.sqlite --question 'How should we v
 ## CI/CD
 
 O workflow [`CI/CD validation`](.github/workflows/ci.yml) executa testes Python em três versões, compilação, typecheck e build do frontend, validação dos schemas públicos e, em pushes aprovados para `MANUS`, publica o bundle `frontend/dist` como artefato temporário. A pipeline não inclui bases, vetores ou índices derivados excluídos da branch pública; detalhes estão em [`docs/CI_CD.md`](docs/CI_CD.md).
+
+## Cloudflare Pages and private R2
+
+O deploy opcional para Cloudflare Pages está em [`deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml). A configuração versionada publica `frontend/dist`, liga o bucket privado `loop-dynamics-private` à Pages Function como `PRIVATE_FILES` e mantém tokens fora do bundle. O setup de provisionamento, secrets e acesso privado está em [`docs/CLOUDFLARE.md`](docs/CLOUDFLARE.md).
