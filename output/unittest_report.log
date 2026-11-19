@@ -1,0 +1,25 @@
+test_domain_translation (test_glossary.TestGlossary.test_domain_translation) ... ok
+test_no_change_to_unrelated (test_glossary.TestGlossary.test_no_change_to_unrelated) ... ok
+test_public_vector_index_does_not_return_private_chunks (test_lsa.LsaSecurityTest.test_public_vector_index_does_not_return_private_chunks) ... ok
+test_roundtrip_json_vocab_numpy_int64 (test_lsa.LsaTest.test_roundtrip_json_vocab_numpy_int64) ... ok
+test_acl_private (test_pipeline.RagPipelineTests.test_acl_private) ... ok
+test_acl_public (test_pipeline.RagPipelineTests.test_acl_public) ... ok
+test_bad_chunk_params (test_pipeline.RagPipelineTests.test_bad_chunk_params) ... ok
+test_fts_row_integrity (test_pipeline.RagPipelineTests.test_fts_row_integrity) ... ok
+test_invalid_query_rejected (test_pipeline.RagPipelineTests.test_invalid_query_rejected) ... ok
+test_investigation_empty (test_pipeline.RagPipelineTests.test_investigation_empty) ... ok
+test_investigation_no_llm (test_pipeline.RagPipelineTests.test_investigation_no_llm) ... ok
+test_lsa_optional (test_pipeline.RagPipelineTests.test_lsa_optional) ... ok
+test_missing_query_abstains (test_pipeline.RagPipelineTests.test_missing_query_abstains) ... ok
+test_no_injected_instruction_executed (test_pipeline.RagPipelineTests.test_no_injected_instruction_executed) ... ok
+test_pdf_page_and_chapter (test_pipeline.RagPipelineTests.test_pdf_page_and_chapter) ... ok
+test_plan_bounded (test_pipeline.RagPipelineTests.test_plan_bounded) ... ok
+test_quote_and_punctuation_fts (test_pipeline.RagPipelineTests.test_quote_and_punctuation_fts) ... ok
+test_split_preserves_negation (test_pipeline.RagPipelineTests.test_split_preserves_negation) ... ok
+test_stable_ids_reindex (test_pipeline.RagPipelineTests.test_stable_ids_reindex) ... ok
+test_tags_include_system_terms (test_pipeline.RagPipelineTests.test_tags_include_system_terms) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.222s
+
+OK

@@ -1,0 +1,60 @@
+{
+  "sterman_pdf": {
+    "pages": 1008,
+    "pages_indexed": 979,
+    "short_text_pages": 35,
+    "chunks": 3322,
+    "pages_with_illustrations": 849,
+    "quality_warnings": [
+      "PDF page 26 has no extracted text",
+      "PDF page 27 has no extracted text",
+      "PDF page 65 has no extracted text",
+      "PDF page 107 has no extracted text",
+      "PDF page 131 has no extracted text",
+      "PDF page 159 has no extracted text",
+      "PDF page 160 has no extracted text",
+      "PDF page 161 has no extracted text",
+      "PDF page 317 has no extracted text",
+      "PDF page 318 has no extracted text",
+      "PDF page 319 has no extracted text",
+      "PDF page 373 has no extracted text",
+      "PDF page 432 has no extracted text",
+      "PDF page 433 has no extracted text",
+      "PDF page 493 has no extracted text",
+      "PDF page 621 has no extracted text",
+      "PDF page 655 has no extracted text",
+      "PDF page 686 has no extracted text",
+      "PDF page 687 has no extracted text",
+      "PDF page 781 has no extracted text",
+      "PDF page 815 has no extracted text",
+      "PDF page 867 has no extracted text",
+      "PDF page 868 has no extracted text",
+      "PDF page 869 has no extracted text",
+      "PDF page 917 has no extracted text",
+      "PDF page 918 has no extracted text",
+      "PDF page 919 has no extracted text",
+      "PDF page 927 has no extracted text",
+      "PDF page 937 has no extracted text"
+    ]
+  },
+  "NOTE-AGENTIC-RAG-SURVEY": {
+    "pages": 1,
+    "pages_indexed": 1,
+    "chunks": 1
+  },
+  "NOTE-INSPER-SYSTEMS-THINKING": {
+    "pages": 1,
+    "pages_indexed": 1,
+    "chunks": 2
+  },
+  "NOTE-LANGCHAIN-REFERENCE": {
+    "pages": 1,
+    "pages_indexed": 1,
+    "chunks": 1
+  },
+  "NOTE-OWASP-SECURITY": {
+    "pages": 1,
+    "pages_indexed": 1,
+    "chunks": 1
+  }
+}

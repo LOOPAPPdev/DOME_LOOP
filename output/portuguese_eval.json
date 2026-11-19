@@ -1,0 +1,55 @@
+{
+  "n": 8,
+  "hit_at_1": 7,
+  "recall_at_5": 8,
+  "details": [
+    {
+      "id": "PT01",
+      "expected": 21,
+      "rank": 1,
+      "top_chunk": "STERMAN-2000-P0876-C001"
+    },
+    {
+      "id": "PT02",
+      "expected": 5,
+      "rank": 1,
+      "top_chunk": "STERMAN-2000-P0215-C002"
+    },
+    {
+      "id": "PT03",
+      "expected": 6,
+      "rank": 1,
+      "top_chunk": "STERMAN-2000-P0216-C001"
+    },
+    {
+      "id": "PT04",
+      "expected": "NOTE-INSPER-SYSTEMS-THINKING",
+      "rank": 1,
+      "top_chunk": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+    },
+    {
+      "id": "PT05",
+      "expected": 11,
+      "rank": 2,
+      "top_chunk": "STERMAN-2000-P0139-C003"
+    },
+    {
+      "id": "PT06",
+      "expected": 13,
+      "rank": 1,
+      "top_chunk": "STERMAN-2000-P0539-C004"
+    },
+    {
+      "id": "PT07",
+      "expected": "NOTE-INSPER-SYSTEMS-THINKING",
+      "rank": 1,
+      "top_chunk": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+    },
+    {
+      "id": "PT08",
+      "expected": 21,
+      "rank": 1,
+      "top_chunk": "STERMAN-2000-P0891-C004"
+    }
+  ]
+}

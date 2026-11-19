@@ -1,0 +1,96 @@
+{
+  "k": 5,
+  "passed": 8,
+  "total": 8,
+  "recall_at_k": 1.0,
+  "details": [
+    {
+      "id": "E01",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0111-C001",
+        "STERMAN-2000-P0120-C001",
+        "STERMAN-2000-P0119-C004",
+        "STERMAN-2000-P0115-C004",
+        "STERMAN-2000-P0924-C002"
+      ]
+    },
+    {
+      "id": "E02",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0014-C001",
+        "STERMAN-2000-P0170-C001",
+        "STERMAN-2000-P0168-C001",
+        "STERMAN-2000-P0215-C003",
+        "STERMAN-2000-P0166-C003"
+      ]
+    },
+    {
+      "id": "E03",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0254-C004",
+        "STERMAN-2000-P0015-C001",
+        "STERMAN-2000-P0223-C003",
+        "STERMAN-2000-P0254-C003",
+        "STERMAN-2000-P0222-C003"
+      ]
+    },
+    {
+      "id": "E04",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0491-C003",
+        "STERMAN-2000-P0495-C001",
+        "STERMAN-2000-P0175-C001",
+        "STERMAN-2000-P0453-C001",
+        "STERMAN-2000-P0470-C003"
+      ]
+    },
+    {
+      "id": "E05",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0884-C001",
+        "STERMAN-2000-P0111-C002",
+        "STERMAN-2000-P0111-C003",
+        "STERMAN-2000-P0915-C003",
+        "STERMAN-2000-P0891-C004"
+      ]
+    },
+    {
+      "id": "E06",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0708-C001",
+        "STERMAN-2000-P0700-C002",
+        "STERMAN-2000-P0787-C001",
+        "STERMAN-2000-P0699-C001",
+        "STERMAN-2000-P0699-C002"
+      ]
+    },
+    {
+      "id": "E07",
+      "passed": true,
+      "hits": [
+        "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001",
+        "STERMAN-2000-P0926-C002",
+        "STERMAN-2000-P0030-C001",
+        "STERMAN-2000-P0001-C001",
+        "STERMAN-2000-P0029-C003"
+      ]
+    },
+    {
+      "id": "E08",
+      "passed": true,
+      "hits": [
+        "STERMAN-2000-P0030-C001",
+        "STERMAN-2000-P0105-C002",
+        "NOTE-AGENTIC-RAG-SURVEY-P0001-C001",
+        "STERMAN-2000-P0006-C003",
+        "STERMAN-2000-P0623-C001"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+[
+  {
+    "method": "lexical",
+    "n": 32,
+    "hit_at_1": 26,
+    "recall_at_5": 32,
+    "mrr_at_5": 0.906,
+    "rows": [
+      {
+        "id": "E01",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0111-C001"
+      },
+      {
+        "id": "E02",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0168-C001"
+      },
+      {
+        "id": "E03",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0254-C004"
+      },
+      {
+        "id": "E04",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0495-C001"
+      },
+      {
+        "id": "E05",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0884-C001"
+      },
+      {
+        "id": "E06",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0708-C001"
+      },
+      {
+        "id": "E07",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+      },
+      {
+        "id": "E08",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-AGENTIC-RAG-SURVEY-P0001-C001"
+      },
+      {
+        "id": "E09",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0030-C002"
+      },
+      {
+        "id": "E10",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0234-C003"
+      },
+      {
+        "id": "E11",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0133-C001"
+      },
+      {
+        "id": "E12",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0264-C001"
+      },
+      {
+        "id": "E13",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0134-C001"
+      },
+      {
+        "id": "E14",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0372-C001"
+      },
+      {
+        "id": "E15",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0388-C001"
+      },
+      {
+        "id": "E16",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0491-C002"
+      },
+      {
+        "id": "E17",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0534-C001"
+      },
+      {
+        "id": "E18",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0735-C003"
+      },
+      {
+        "id": "E19",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0610-C002"
+      },
+      {
+        "id": "E20",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0623-C002"
+      },
+      {
+        "id": "E21",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0680-C002"
+      },
+      {
+        "id": "E22",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0155-C001"
+      },
+      {
+        "id": "E23",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0782-C002"
+      },
+      {
+        "id": "E24",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0810-C001"
+      },
+      {
+        "id": "E25",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0848-C001"
+      },
+      {
+        "id": "E26",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0896-C001"
+      },
+      {
+        "id": "E27",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0920-C001"
+      },
+      {
+        "id": "E28",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0928-C001"
+      },
+      {
+        "id": "E29",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0939-C001"
+      },
+      {
+        "id": "E30",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+      },
+      {
+        "id": "E31",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-OWASP-SECURITY-P0001-C001"
+      },
+      {
+        "id": "E32",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-LANGCHAIN-REFERENCE-P0001-C001"
+      }
+    ]
+  },
+  {
+    "method": "hybrid",
+    "n": 32,
+    "hit_at_1": 24,
+    "recall_at_5": 32,
+    "mrr_at_5": 0.857,
+    "rows": [
+      {
+        "id": "E01",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0111-C001"
+      },
+      {
+        "id": "E02",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0170-C001"
+      },
+      {
+        "id": "E03",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0254-C004"
+      },
+      {
+        "id": "E04",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0491-C003"
+      },
+      {
+        "id": "E05",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0111-C002"
+      },
+      {
+        "id": "E06",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0708-C001"
+      },
+      {
+        "id": "E07",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+      },
+      {
+        "id": "E08",
+        "found_at_rank": 3,
+        "top_hit": "STERMAN-2000-P0030-C001"
+      },
+      {
+        "id": "E09",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0028-C002"
+      },
+      {
+        "id": "E10",
+        "found_at_rank": 4,
+        "top_hit": "STERMAN-2000-P0234-C004"
+      },
+      {
+        "id": "E11",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0133-C001"
+      },
+      {
+        "id": "E12",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0257-C004"
+      },
+      {
+        "id": "E13",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0134-C001"
+      },
+      {
+        "id": "E14",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0372-C001"
+      },
+      {
+        "id": "E15",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0388-C001"
+      },
+      {
+        "id": "E16",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0491-C003"
+      },
+      {
+        "id": "E17",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0496-C001"
+      },
+      {
+        "id": "E18",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0574-C004"
+      },
+      {
+        "id": "E19",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0577-C002"
+      },
+      {
+        "id": "E20",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0623-C002"
+      },
+      {
+        "id": "E21",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0680-C002"
+      },
+      {
+        "id": "E22",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0155-C001"
+      },
+      {
+        "id": "E23",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0782-C002"
+      },
+      {
+        "id": "E24",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0810-C001"
+      },
+      {
+        "id": "E25",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0866-C001"
+      },
+      {
+        "id": "E26",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0885-C002"
+      },
+      {
+        "id": "E27",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0924-C001"
+      },
+      {
+        "id": "E28",
+        "found_at_rank": 3,
+        "top_hit": "STERMAN-2000-P0259-C004"
+      },
+      {
+        "id": "E29",
+        "found_at_rank": 1,
+        "top_hit": "STERMAN-2000-P0939-C001"
+      },
+      {
+        "id": "E30",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-INSPER-SYSTEMS-THINKING-P0001-C001"
+      },
+      {
+        "id": "E31",
+        "found_at_rank": 2,
+        "top_hit": "STERMAN-2000-P0172-C004"
+      },
+      {
+        "id": "E32",
+        "found_at_rank": 1,
+        "top_hit": "NOTE-LANGCHAIN-REFERENCE-P0001-C001"
+      }
+    ]
+  }
+]

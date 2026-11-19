@@ -1,0 +1,7 @@
+{
+  "chunks": 3327,
+  "features": 11696,
+  "dimensions": 64,
+  "explained_variance_ratio": 0.1571136397682134,
+  "method": "LSA (TF-IDF + TruncatedSVD); NOT transformer embeddings"
+}
