@@ -15,7 +15,7 @@ loop-rag investigate --db output/loop_knowledge.sqlite --lsa output/lsa.npz --qu
 python -m unittest discover -s tests -v
 ```
 
-The included `output/loop_knowledge.sqlite` is already indexed from the uploaded user-provided *Business Dynamics* PDF. The original PDF is not included in the package. Sources added from `sources/*.md` are short source-cited research notes, not complete scraped pages.
+The original ZIP includes `output/loop_knowledge.sqlite`, indexed from the user-provided *Business Dynamics* PDF. This public branch does not include that database. The original PDF is not included in the package. Sources added from `sources/*.md` are short source-cited research notes, not complete scraped pages.
 
 **Important:** `output/lsa.npz` contains local LSA vectors, not neural sentence-transformer embeddings. `investigate` emits evidence and a reproducible handoff, not an invented model-generated answer. Human-agent integration is specified in `docs/WORKING_PROCESS.md`.
 
@@ -26,3 +26,7 @@ See `docs/WORKING_PROCESS.md`, `docs/ARCHITECTURE.mmd`, `schemas/handoff.schema.
 
 ### Copyright and data rights
 The PDF was supplied by the user and is indexed for private analysis. Do not redistribute the private chunk database publicly without confirming permissions. This package does not contain the original PDF.
+
+## Public branch (MANUS)
+
+This public branch contains 46 project files: Python source, schemas, tests, documentation, the architecture image, and non-sensitive verification reports. Eleven files from the original ZIP are deliberately excluded: `output/loop_knowledge.sqlite`, `output/lsa.npz`, `output/lsa.vocab.json`, `output/demo_investigation.json`, and the seven files in `output/demo_run/`. These artifacts include, quote, or derive from the copyrighted *Business Dynamics* source material. No redistribution rights were established for posting those materials to a public GitHub repository. Regenerate the indexes locally using an authorized PDF and the commands above.
