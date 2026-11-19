@@ -1,11 +1,22 @@
+import { useState, type FormEvent } from "react"
 import type { AnalysisModel } from "../data/analysis"
 
 type AnalysisRailProps = {
   model: AnalysisModel
   selectedNodeLabel: string
+  loading: boolean
+  error: string | null
+  onSubmit: (question: string) => Promise<void>
 }
 
-export function AnalysisRail({ model, selectedNodeLabel }: AnalysisRailProps) {
+export function AnalysisRail({ model, selectedNodeLabel, loading, error, onSubmit }: AnalysisRailProps) {
+  const [question, setQuestion] = useState(model.question)
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (question.trim()) await onSubmit(question.trim())
+  }
+
   return (
     <aside className="analysis-rail panel-surface">
       <div className="section-heading">
@@ -17,7 +28,11 @@ export function AnalysisRail({ model, selectedNodeLabel }: AnalysisRailProps) {
       </div>
       <div className="question-block">
         <span className="label">QUESTION</span>
-        <p>{model.question}</p>
+        <form onSubmit={handleSubmit}>
+          <input aria-label="Analysis question" value={question} onChange={(event) => setQuestion(event.target.value)} />
+          <button className="ghost-button" disabled={loading} type="submit">{loading ? "Running…" : "Run analysis"}</button>
+        </form>
+        {error ? <p role="alert">{error}</p> : null}
       </div>
       <div className="answer-block">
         <span className="label">GROUNDED READOUT</span>
