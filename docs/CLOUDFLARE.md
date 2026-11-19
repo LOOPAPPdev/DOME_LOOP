@@ -14,15 +14,22 @@ The names are intentionally explicit so the Wrangler configuration and GitHub wo
 
 ## One-time Cloudflare provisioning
 
-The Cloudflare MCP/API provisioned the Pages project `loop-dynamics-console` with production branch `MANUS` and the repository build settings. The R2 bucket was not created because the account currently returns Cloudflare API error `10042`: R2 must first be enabled through the Cloudflare Dashboard.
+The Cloudflare MCP/API provisioned the Pages project `loop-dynamics-console` with production branch `MANUS`, the repository build settings, and the private R2 bucket `loop-dynamics-private`. The `PRIVATE_FILES` binding is active in both preview and production.
 
-After enabling R2 in the intended account, create the bucket with the API or Wrangler:
+The API-created bucket has location `ENAM`, storage class `Standard`, and default jurisdiction. The project build configuration is:
+
+```text
+corepack enable && pnpm install --frozen-lockfile && pnpm --dir frontend build
+output: frontend/dist
+```
+
+If the bucket must be recreated in another account, use:
 
 ```bash
 pnpm dlx wrangler@4.165.0 r2 bucket create loop-dynamics-private
 ```
 
-The Pages project already exists. Do not run the Pages project creation command again. R2 enablement is account-level and may require accepting Cloudflare's R2 terms or billing setup in the dashboard; it is intentionally not bypassed by the API.
+The Pages project and bucket already exist. Do not run the creation commands again in this account.
 
 If either resource already exists, list it first and do not recreate it:
 
@@ -53,6 +60,8 @@ The current React application does not call this endpoint. A future authenticate
 - `CLOUDFLARE_ACCOUNT_ID`: the target Cloudflare account identifier.
 
 Add them in the repository Settings under **Secrets and variables → Actions**. The workflow deliberately does not create or delete Cloudflare resources. When the secrets are absent, it emits a setup reminder and does not fail the normal CI pipeline.
+
+The manual workflow test completed successfully for build and typecheck, but its `Deploy Cloudflare Pages` step was skipped because the two GitHub secrets were not available to Actions. This is different from a successful production publication.
 
 ## Security boundary
 

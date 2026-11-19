@@ -29,5 +29,7 @@
 - [x] Add a GitHub Actions Pages deploy workflow with pinned pnpm and secret-gated deployment.
 - [x] Document one-time Pages/R2 provisioning, Pages secrets, GitHub Actions secrets, and the public/private boundary.
 - [x] Enable the Cloudflare connector and provision the Pages project in the intended account.
-- [ ] Enable R2 in the Cloudflare Dashboard and provision the private R2 bucket in the intended account.
+- [x] Enable R2 and provision the private R2 bucket in the intended account.
+- [x] Bind `PRIVATE_FILES` to the Pages preview and production environments.
 - [ ] Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets.
+- [ ] Set the Pages secret `PRIVATE_FILE_ACCESS_TOKEN` before using the private-file endpoint.
