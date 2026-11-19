@@ -1,5 +1,6 @@
 interface Env {
-  BACKEND_API_URL?: string;
+  ANALYSIS_BACKEND_URL?: string;
+  ANALYSIS_BACKEND_TOKEN?: string;
   LOOP_BFF_SESSION_SECRET?: string;
   LOOP_BFF_ALLOWED_ORIGINS?: string;
   LOOP_BFF_MAX_BODY_BYTES?: string;
@@ -70,7 +71,7 @@ function rateLimited(request: Request): boolean {
 export const onRequest = async (context: PagesContext): Promise<Response> => {
   const id = traceId();
   const { request, env } = context;
-  if (!env.BACKEND_API_URL || !env.LOOP_BFF_SESSION_SECRET || !env.LOOP_BFF_ALLOWED_ORIGINS) {
+  if (!env.ANALYSIS_BACKEND_URL || !env.LOOP_BFF_SESSION_SECRET || !env.LOOP_BFF_ALLOWED_ORIGINS) {
     return json(503, "BFF_NOT_CONFIGURED", "Authenticated BFF is not configured", id);
   }
   if (!allowedOrigin(request, env)) return json(403, "ORIGIN_DENIED", "Origin is not allowed", id);
@@ -82,7 +83,7 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     const length = Number(request.headers.get("Content-Length") ?? "0");
     if (!request.headers.get("Content-Type")?.startsWith("application/json") || length > max) return json(422, "INVALID_REQUEST", "JSON body and size limit required", id);
   }
-  const upstream = new URL(`/v1/${pathOf(context)}`, env.BACKEND_API_URL);
+  const upstream = new URL(`/v1/${pathOf(context)}`, env.ANALYSIS_BACKEND_URL);
   const headers = new Headers(request.headers);
   headers.delete("Cookie");
   headers.delete("Host");
