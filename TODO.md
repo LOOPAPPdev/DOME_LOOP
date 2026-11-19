@@ -14,3 +14,10 @@
 - [ ] Run Python tests, compilation and available retrieval/database checks on pull requests and pushes to `MANUS`.
 - [ ] Install frontend dependencies reproducibly and run TypeScript validation plus a production build.
 - [ ] Validate repository JSON schemas and example contracts without publishing excluded data or indexes.
+
+## LangGraph multi-agent orchestration
+
+- [ ] Add a bounded LangGraph workflow for routing, retrieval, dynamics hypothesis generation, grounding review, optional intervention planning, and handoff persistence.
+- [ ] Preserve ACL filtering, chunk-level provenance, untrusted retrieved context, and explicit `simulation: not_performed` status.
+- [ ] Keep candidate causal edges as hypotheses until evidence and a disconfirmation test are present.
+- [ ] Add deterministic tests for evidence-found, insufficient-evidence, and intervention-routing paths.

@@ -7,6 +7,7 @@ from pathlib import Path
 from .core import connect,initialize,ingest_pdf,ingest_text,retrieve
 from .lsa import build_lsa,hybrid_search
 from .runtime import run_investigation
+from .langgraph_workflow import run_langgraph
 
 
 def main(argv=None):
@@ -17,6 +18,7 @@ def main(argv=None):
     for cmd in ['search','investigate']:
         p=sp.add_parser(cmd);p.add_argument('--db',required=True);p.add_argument('--question',required=True);p.add_argument('--lsa');p.add_argument('--k',type=int,default=6);p.add_argument('--group',choices=['public','private'],default='private')
         if cmd=='investigate':p.add_argument('--out',required=True)
+    lg=sp.add_parser('langgraph');lg.add_argument('--db',required=True);lg.add_argument('--question',required=True);lg.add_argument('--lsa');lg.add_argument('--out');lg.add_argument('--k',type=int,default=6);lg.add_argument('--group',choices=['public','private'],default='private')
     stat=sp.add_parser('stats');stat.add_argument('--db',required=True)
     args=ap.parse_args(argv)
     if args.cmd=='build':
@@ -45,6 +47,10 @@ def main(argv=None):
                 'snippet':r['content'][:350]} for r in results],ensure_ascii=False,indent=2))
     elif args.cmd=='investigate':
         report=run_investigation(Path(args.db),args.question,output=Path(args.out),lsa=Path(args.lsa) if args.lsa else None,group=args.group,k=args.k)
+        print(json.dumps(report,ensure_ascii=False,indent=2))
+    elif args.cmd=='langgraph':
+        report=run_langgraph(Path(args.db),args.question,output=Path(args.out) if args.out else None,
+                             lsa=Path(args.lsa) if args.lsa else None,group=args.group,k=args.k)
         print(json.dumps(report,ensure_ascii=False,indent=2))
     elif args.cmd=='stats':
         with closing(connect(args.db)) as c:

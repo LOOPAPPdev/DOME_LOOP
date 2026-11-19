@@ -33,3 +33,7 @@ Extend `.github/workflows/ci.yml` with separate `backend` and `frontend` jobs. B
 ## Acceptance
 
 The branch contains a functional React/TypeScript frontend with React Flow causal visualization, typed local analysis data, evidence/citation display, clear simulation gating, responsive styling, and a route manifest. GitHub Actions automatically runs backend validation, frontend type checking/build, and schema validation on pull requests and pushes to `MANUS`. No existing Python source, data exclusion policy, or public-branch safety rule is weakened.
+
+## LangGraph orchestration extension
+
+The deterministic LangGraph workflow will add bounded nodes for routing, ACL-aware retrieval, candidate system-dynamics mapping, grounding review, optional reversible intervention planning, and handoff persistence. The workflow will use the existing SQLite/FTS5 and optional LSA retrieval paths, preserve chunk IDs, keep retrieved text as untrusted data, mark co-occurrence-derived causal edges as hypotheses, and set `simulation: not_performed` unless a formal validated model is supplied. LangGraph remains an optional Python extra so the base ingestion and retrieval package stays usable without orchestration dependencies.

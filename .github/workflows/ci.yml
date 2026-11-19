@@ -32,7 +32,7 @@ jobs:
       - name: Install package and test extras
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e '.[vector,test]'
+          python -m pip install -e '.[vector,test,agentic]'
       - name: Run deterministic tests
         run: python -m unittest discover -s tests -v
       - name: Compile source and tests

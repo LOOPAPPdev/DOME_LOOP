@@ -43,6 +43,15 @@ pnpm --dir frontend dev
 
 A interface mostra o ledger de evidências, o mapa causal, notas de análise e o gate `simulation: not performed` quando não existe um modelo formal validado. O contrato de transição para a API Python está documentado em [`docs/FRONTEND.md`](docs/FRONTEND.md).
 
+## LangGraph orchestration
+
+The optional `agentic` extra adds a bounded LangGraph workflow for deterministic routing, ACL-aware retrieval, candidate system-dynamics mapping, grounding review, reversible intervention proposals, and handoff persistence. It does not call an LLM or run a simulation implicitly. See [`docs/LANGGRAPH_WORKFLOW.md`](docs/LANGGRAPH_WORKFLOW.md).
+
+```bash
+python -m pip install -e '.[vector,test,agentic]'
+loop-rag langgraph --db output/loop_knowledge.sqlite --question 'How should we validate a causal model?' --out output/langgraph_runs
+```
+
 ## CI/CD
 
 O workflow [`CI/CD validation`](.github/workflows/ci.yml) executa testes Python em três versões, compilação, typecheck e build do frontend, validação dos schemas públicos e, em pushes aprovados para `MANUS`, publica o bundle `frontend/dist` como artefato temporário. A pipeline não inclui bases, vetores ou índices derivados excluídos da branch pública; detalhes estão em [`docs/CI_CD.md`](docs/CI_CD.md).
