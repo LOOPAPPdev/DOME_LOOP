@@ -31,5 +31,6 @@
 - [x] Enable the Cloudflare connector and provision the Pages project in the intended account.
 - [x] Enable R2 and provision the private R2 bucket in the intended account.
 - [x] Bind `PRIVATE_FILES` to the Pages preview and production environments.
+- [x] Create an account-owned Cloudflare token with Pages Write scoped to the target account.
 - [ ] Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets.
 - [ ] Set the Pages secret `PRIVATE_FILE_ACCESS_TOKEN` before using the private-file endpoint.

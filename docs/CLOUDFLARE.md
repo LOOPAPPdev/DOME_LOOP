@@ -61,6 +61,8 @@ The current React application does not call this endpoint. A future authenticate
 
 Add them in the repository Settings under **Secrets and variables → Actions**. The workflow deliberately does not create or delete Cloudflare resources. When the secrets are absent, it emits a setup reminder and does not fail the normal CI pipeline.
 
+An account-owned token named `DOME_LOOP GitHub Pages Deploy` was created through the Cloudflare API with only `Pages Write`, scoped to account `75de1b565537ef3014ad55f3d323e3fd`. It expires on `2027-11-19T23:59:59Z` and has token suffix `54f4`. The one-time secret value is not stored in this repository; copy it from the secure API creation result into the `CLOUDFLARE_API_TOKEN` GitHub Actions secret. Set `CLOUDFLARE_ACCOUNT_ID` to `75de1b565537ef3014ad55f3d323e3fd`.
+
 The manual workflow test completed successfully for build and typecheck, but its `Deploy Cloudflare Pages` step was skipped because the two GitHub secrets were not available to Actions. This is different from a successful production publication.
 
 ## Security boundary
