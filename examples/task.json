@@ -1,0 +1,9 @@
+{
+  "task_id":"LOOP-DEMO-01", "system":"Customer support backlog",
+  "problem":"Backlog grows despite more agents assigned",
+  "objective":"Model the causal loops and validate plausible interventions",
+  "horizon":"12 months", "scope":["arrival rate","completion rate","backlog","quality"],
+  "requested_outputs":["iceberg","causal_loop","leverage","roadmap"],
+  "simulation_authorized":false,
+  "notes":"Fictional example; no empirical claims."
+}

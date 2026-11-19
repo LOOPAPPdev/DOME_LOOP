@@ -1,0 +1,38 @@
+digraph LOOPRAG {
+  graph [rankdir=TB, bgcolor="white", fontname="DejaVu Sans", nodesep=0.35, ranksep=0.35, pad=0.3];
+  node [shape=box, style="rounded,filled", fillcolor="#F5F6F8", fontname="DejaVu Sans", fontsize=11, margin="0.17,0.1", color="#B8BEC6"];
+  edge [color="#6A737D", arrowsize=0.6];
+  subgraph cluster_ingest {
+    label="A · BUILD KNOWLEDGE BASE"; fontname="DejaVu Sans"; fontsize=12; color="#B8BEC6";
+    source [label="Authorized sources\nPDF + Markdown"];
+    load [label="LOAD · Extract + QA"];
+    split [label="SPLIT · Pages + overlap"];
+    metadata [label="Tags · IDs · Hash · ACL"];
+    fts [label="SQLite FTS5", shape=cylinder, fillcolor="#E8F3F7"];
+    lsa [label="Optional LSA vectors", shape=cylinder, fillcolor="#E8F3F7"];
+    source -> load -> split -> metadata;
+    metadata -> fts; metadata -> lsa;
+  }
+  subgraph cluster_agent {
+    label="B · AGENTIC RETRIEVAL AND SYSTEMIC ANALYSIS";fontname="DejaVu Sans";fontsize=12;color="#B8BEC6";
+    task [label="Defined system + question",fillcolor="#F9FAF1"];
+    plan [label="ORC-00 · Plan / Route"];
+    search [label="RET-05 · Search + ACL"];
+    gate [shape=diamond,label="Evidence sufficient?",height=0.9,fillcolor="#FEF5E9"];
+    offload [label="OFFLOAD · cited files + handoff"];
+    model [label="DYN-06 · Iceberg / CLD / hypotheses"];
+    verify [label="ARI-00 + QA-07 · Verify / contradict"];
+    strategy [label="INT-08 · Intervention roadmap"];
+    approval [shape=diamond,label="External action?",fillcolor="#FEF5E9"];
+    output [label="Evidence report + sources",fillcolor="#EDF6ED"];
+    abstain [label="One retry → abstain if weak",fillcolor="#FDF2F1"];
+    human [label="Human approval",fillcolor="#FDF2F1"];
+    task -> plan -> search -> gate;
+    gate -> offload [label="yes",fontsize=9];
+    gate -> abstain [label="no",fontsize=9];
+    offload -> model -> verify -> strategy -> approval;
+    approval -> output [label="no",fontsize=9]; approval -> human [label="yes",fontsize=9];
+    human -> output;
+  }
+  fts -> search [constraint=false];lsa -> search [constraint=false];
+}

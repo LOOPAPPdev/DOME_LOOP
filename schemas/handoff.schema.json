@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object", "additionalProperties":false,
+  "required":["task_id","agent_id","status","authorized_source_ids","input_refs","output_refs","evidence_chunk_ids","assumptions","open_questions","next_gate","approval_required"],
+  "properties":{
+    "task_id":{"type":"string","minLength":1},"agent_id":{"type":"string","minLength":2},
+    "status":{"enum":["draft","in_progress","blocked","review_ready","complete"]},
+    "authorized_source_ids":{"type":"array","items":{"type":"string"}},
+    "input_refs":{"type":"array","items":{"type":"string"}},
+    "output_refs":{"type":"array","items":{"type":"string"}},
+    "evidence_chunk_ids":{"type":"array","items":{"type":"string"}},
+    "assumptions":{"type":"array","items":{"type":"string"}},
+    "open_questions":{"type":"array","items":{"type":"string"}},
+    "next_gate":{"type":"string"},"approval_required":{"type":"boolean"}
+  }
+}

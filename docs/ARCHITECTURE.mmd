@@ -1,0 +1,31 @@
+flowchart TB
+  subgraph I[PIPELINE A · INGESTÃO]
+    A[Fontes autorizadas: PDF / Markdown] --> B[Load + Extract + Layout QA]
+    B --> C[Conservar negação, unidades e página]
+    C --> D[Split por página + overlap + metadados]
+    D --> E[Taxonomia + hash + ACL]
+    E --> F[(SQLite FTS5)]
+    E --> G[(LSA vetorial opcional)]
+    E --> H[(Claims e relações causais)]
+  end
+  subgraph Q[PIPELINE B · AGENTIC RETRIEVAL]
+    U[Pergunta / sistema definido] --> P[ORC-00 · Plano / roteamento]
+    P --> R[RET-05 · Pesquisa ACL]
+    F --> R
+    G --> R
+    R --> J{Evidência suficiente?}
+    J -->|Não| K[Reformular uma vez ou abster]
+    K --> R
+    J -->|Sim| O[Offload · ficheiros + handoff]
+    O --> S[DYN-06 · Modelo do sistema]
+    S --> V[ARI-00 + QA-07 · Validação]
+    V --> M{Modelo formal validado?}
+    M -->|Não| N[Simulação não realizada]
+    M -->|Sim| SIM[Motor de simulação externo]
+    N --> T[INT-08 · Roadmap / riscos]
+    SIM --> T
+    T --> AP{Ação externa?}
+    AP -->|Sim| HUMAN[Autorizar humano]
+    AP -->|Não| RESP[Relatório + citações]
+    HUMAN --> RESP
+  end

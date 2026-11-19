@@ -1,0 +1,57 @@
+{
+  "workflow_version": "1.0.0",
+  "case_id": "SYS-DEMO-001",
+  "status": "draft",
+  "system": {
+    "name": "Fila de atendimento (demonstração fictícia)",
+    "problem": "Aumento hipotético do tempo de espera",
+    "objective": "Explorar possíveis estruturas causais e opções de intervenção",
+    "horizon": "90 dias (hipótese ilustrativa)",
+    "boundary_included": ["entradas na fila", "atendimento", "pressão operacional"],
+    "boundary_excluded": ["economia regional", "política de preços"],
+    "stakeholders": ["utilizadores do serviço", "equipa de atendimento", "gestor do serviço"],
+    "method_fit": "high"
+  },
+  "evidence": [
+    {
+      "id": "EV-001",
+      "kind": "assumption",
+      "statement": "A estrutura causal e os valores são inteiramente ilustrativos; nenhuma medição foi recolhida.",
+      "status": "unverified",
+      "source": null
+    }
+  ],
+  "iceberg": {
+    "events": [{"text": "Alguns clientes esperam mais tempo (cenário hipotético).", "evidence_ids": ["EV-001"]}],
+    "patterns": [{"text": "Hipótese de filas recorrentes em períodos de procura elevada; ainda sem série temporal.", "evidence_ids": ["EV-001"]}],
+    "structures": [{"text": "Capacidade de serviço pode reagir à pressão causada pela fila com atraso.", "evidence_ids": ["EV-001"]}],
+    "mental_models": [{"text": "Hipótese: aumentar o ritmo de atendimento seria suficiente para resolver a fila.", "evidence_ids": ["EV-001"]}]
+  },
+  "variables": [
+    {"id": "V01", "name": "Taxa de chegadas", "kind": "flow", "unit": "pessoas/dia", "evidence_ids": ["EV-001"]},
+    {"id": "V02", "name": "Tamanho da fila", "kind": "stock", "unit": "pessoas", "evidence_ids": ["EV-001"]},
+    {"id": "V03", "name": "Pressão operacional", "kind": "auxiliary", "unit": "índice qualitativo", "evidence_ids": ["EV-001"]},
+    {"id": "V04", "name": "Taxa de atendimento", "kind": "flow", "unit": "pessoas/dia", "evidence_ids": ["EV-001"]}
+  ],
+  "links": [
+    {"id": "L1", "source": "V01", "target": "V02", "polarity": "+", "delay": "none", "status": "hypothesis", "evidence_ids": ["EV-001"], "disconfirmation_test": "Observar se chegadas adicionais aumentam a fila quando a taxa de atendimento é mantida constante."},
+    {"id": "L2", "source": "V02", "target": "V03", "polarity": "+", "delay": "none", "status": "hypothesis", "evidence_ids": ["EV-001"], "disconfirmation_test": "Verificar se a pressão reportada permanece estável apesar do aumento da fila."},
+    {"id": "L3", "source": "V03", "target": "V04", "polarity": "+", "delay": "possible", "status": "hypothesis", "evidence_ids": ["EV-001"], "disconfirmation_test": "Testar se a pressão elevada não se traduz em aumento da taxa de serviço."},
+    {"id": "L4", "source": "V04", "target": "V02", "polarity": "-", "delay": "none", "status": "hypothesis", "evidence_ids": ["EV-001"], "disconfirmation_test": "Medir se maior atendimento não reduz o tamanho da fila quando as chegadas se mantêm constantes."}
+  ],
+  "loops": [
+    {"id": "B1", "link_ids": ["L2", "L3", "L4"], "classification": "balancing", "status": "hypothesis"}
+  ],
+  "archetypes": [],
+  "behavior_hypotheses": [
+    {"id": "H1", "statement": "Se a taxa de chegada exceder de modo persistente a capacidade efetiva, a fila tenderá a aumentar.", "time_horizon": "90 dias", "disconfirmation_test": "Medir diariamente chegadas, atendimentos e tamanho da fila para testar a relação de balanço de fluxo.", "evidence_ids": ["EV-001"]}
+  ],
+  "leverage_points": [
+    {"id": "LP1", "variable_ids": ["V04"], "hypothesized_mechanism": "Testar se alterações sustentáveis na capacidade de atendimento podem reduzir a acumulação.", "evidence_ids": ["EV-001"], "risks": ["aumento de erros", "sobrecarga de trabalhadores"], "priority": "undetermined"}
+  ],
+  "roadmap": [
+    {"id": "A1", "leverage_point_id": "LP1", "action": "Medir entradas, saídas, tempos e qualidade antes de testar alterações de capacidade.", "owner": "a definir", "indicator": "tamanho da fila e tempo médio de espera", "checkpoint": "fim da segunda semana do piloto", "stop_condition": "suspender alterações se a segurança ou a qualidade se deteriorarem", "approval_required": true}
+  ],
+  "simulation": {"status": "not_performed", "model_type": null, "validation_evidence_ids": [], "results": []},
+  "review": {"external_reviewer": null, "external_evidence": null, "limitations": ["Exemplo fictício sem medições, validação de causalidade ou revisão externa."], "next_gate": "Obter dados observados e confirmar relações causais com stakeholders."}
+}

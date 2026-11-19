@@ -1,0 +1,42 @@
+[
+  {
+    "id": "PT01",
+    "query": "Como validar um modelo de dinâmica de sistemas?",
+    "expected_chapter": 21
+  },
+  {
+    "id": "PT02",
+    "query": "Como construir diagramas causais?",
+    "expected_chapter": 5
+  },
+  {
+    "id": "PT03",
+    "query": "Como identificar estoques e fluxos?",
+    "expected_chapter": 6
+  },
+  {
+    "id": "PT04",
+    "query": "Quais são os pontos de alavancagem?",
+    "expected_source": "NOTE-INSPER-SYSTEMS-THINKING"
+  },
+  {
+    "id": "PT05",
+    "query": "Como estimar atrasos?",
+    "expected_chapter": 11
+  },
+  {
+    "id": "PT06",
+    "query": "Como modelar as regras de decisão?",
+    "expected_chapter": 13
+  },
+  {
+    "id": "PT07",
+    "query": "Quais são os arquétipos sistêmicos?",
+    "expected_source": "NOTE-INSPER-SYSTEMS-THINKING"
+  },
+  {
+    "id": "PT08",
+    "query": "Como testar consistência dimensional?",
+    "expected_chapter": 21
+  }
+]

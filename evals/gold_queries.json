@@ -1,0 +1,162 @@
+[
+  {
+    "id": "E01",
+    "query": "How does Sterman define problem articulation and dynamic hypothesis?",
+    "expected_chapter": 3
+  },
+  {
+    "id": "E02",
+    "query": "What are causal loop diagrams and link polarity?",
+    "expected_chapter": 5
+  },
+  {
+    "id": "E03",
+    "query": "Explain stocks and flows and their measurement units",
+    "expected_chapter": 6
+  },
+  {
+    "id": "E04",
+    "query": "How are delays modeled in systems?",
+    "expected_chapter": 11
+  },
+  {
+    "id": "E05",
+    "query": "How do you test model boundary adequacy dimensional consistency and extreme conditions?",
+    "expected_chapter": 21
+  },
+  {
+    "id": "E06",
+    "query": "What is the stock management structure?",
+    "expected_chapter": 17
+  },
+  {
+    "id": "E07",
+    "query": "What are the Insper systems thinking program modules?",
+    "expected_source": "NOTE-INSPER-SYSTEMS-THINKING"
+  },
+  {
+    "id": "E08",
+    "query": "How do agentic RAG systems use planning reflection tools and collaboration?",
+    "expected_source": "NOTE-AGENTIC-RAG-SURVEY"
+  },
+  {
+    "id": "E09",
+    "query": "What is policy resistance and unintended consequences?",
+    "expected_chapter": 1
+  },
+  {
+    "id": "E10",
+    "query": "What is the automobile leasing model case study?",
+    "expected_chapter": 2
+  },
+  {
+    "id": "E11",
+    "query": "What are fundamental modes of dynamic behavior?",
+    "expected_chapter": 4
+  },
+  {
+    "id": "E12",
+    "query": "How can we perform graphical integration and graphical differentiation?",
+    "expected_chapter": 7
+  },
+  {
+    "id": "E13",
+    "query": "How does positive feedback generate exponential growth?",
+    "expected_chapter": 8
+  },
+  {
+    "id": "E14",
+    "query": "Describe S-shaped growth and logistic diffusion",
+    "expected_chapter": 9
+  },
+  {
+    "id": "E15",
+    "query": "What is path dependence and the Polya process?",
+    "expected_chapter": 10
+  },
+  {
+    "id": "E16",
+    "query": "How do information delays differ from material delays?",
+    "expected_chapter": 11
+  },
+  {
+    "id": "E17",
+    "query": "How do aging chains and coflows affect organizations?",
+    "expected_chapter": 12
+  },
+  {
+    "id": "E18",
+    "query": "What are decision rules and stock management decision equations?",
+    "expected_chapter": 13
+  },
+  {
+    "id": "E19",
+    "query": "How to formulate nonlinear table functions?",
+    "expected_chapter": 14
+  },
+  {
+    "id": "E20",
+    "query": "What does bounded rationality mean for modeling human behavior?",
+    "expected_chapter": 15
+  },
+  {
+    "id": "E21",
+    "query": "How do forecasts and expectations use smoothing?",
+    "expected_chapter": 16
+  },
+  {
+    "id": "E22",
+    "query": "What causes oscillation in the Beer Distribution Game?",
+    "expected_chapter": 17
+  },
+  {
+    "id": "E23",
+    "query": "How is the manufacturing supply chain modeled?",
+    "expected_chapter": 18
+  },
+  {
+    "id": "E24",
+    "query": "How are workforce and inventory related to business cycles?",
+    "expected_chapter": 19
+  },
+  {
+    "id": "E25",
+    "query": "How are commodity markets and pricing cycles modeled?",
+    "expected_chapter": 20
+  },
+  {
+    "id": "E26",
+    "query": "What are the integration error tests and extreme condition tests?",
+    "expected_chapter": 21
+  },
+  {
+    "id": "E27",
+    "query": "What challenges remain for model implementation and education?",
+    "expected_chapter": 22
+  },
+  {
+    "id": "E28",
+    "query": "How is numerical integration time step selected?",
+    "expected_chapter": 23
+  },
+  {
+    "id": "E29",
+    "query": "How can noise affect system dynamics models?",
+    "expected_chapter": 24
+  },
+  {
+    "id": "E30",
+    "query": "What does Insper teach about iceberg model and systems archetypes?",
+    "expected_source": "NOTE-INSPER-SYSTEMS-THINKING"
+  },
+  {
+    "id": "E31",
+    "query": "Which OWASP threats affect vector embedding retrieval and prompt injection?",
+    "expected_source": "NOTE-OWASP-SECURITY"
+  },
+  {
+    "id": "E32",
+    "query": "What are the Load Split Embed Store stages?",
+    "expected_source": "NOTE-LANGCHAIN-REFERENCE"
+  }
+]
