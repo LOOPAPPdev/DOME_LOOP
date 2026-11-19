@@ -28,5 +28,6 @@
 - [x] Add a fail-closed Pages Function for private object reads with traversal protection and no-store caching.
 - [x] Add a GitHub Actions Pages deploy workflow with pinned pnpm and secret-gated deployment.
 - [x] Document one-time Pages/R2 provisioning, Pages secrets, GitHub Actions secrets, and the public/private boundary.
-- [ ] Enable the Cloudflare connector and provision the Pages project and R2 bucket in the intended account.
+- [x] Enable the Cloudflare connector and provision the Pages project in the intended account.
+- [ ] Enable R2 in the Cloudflare Dashboard and provision the private R2 bucket in the intended account.
 - [ ] Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub Actions secrets.

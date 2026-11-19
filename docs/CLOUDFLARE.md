@@ -14,12 +14,15 @@ The names are intentionally explicit so the Wrangler configuration and GitHub wo
 
 ## One-time Cloudflare provisioning
 
-The Cloudflare connector was not enabled in this task, so resource creation was not executed. With Wrangler authenticated to the intended account, run the following commands after reviewing the names:
+The Cloudflare MCP/API provisioned the Pages project `loop-dynamics-console` with production branch `MANUS` and the repository build settings. The R2 bucket was not created because the account currently returns Cloudflare API error `10042`: R2 must first be enabled through the Cloudflare Dashboard.
+
+After enabling R2 in the intended account, create the bucket with the API or Wrangler:
 
 ```bash
-pnpm dlx wrangler@4.165.0 pages project create loop-dynamics-console --production-branch MANUS
 pnpm dlx wrangler@4.165.0 r2 bucket create loop-dynamics-private
 ```
+
+The Pages project already exists. Do not run the Pages project creation command again. R2 enablement is account-level and may require accepting Cloudflare's R2 terms or billing setup in the dashboard; it is intentionally not bypassed by the API.
 
 If either resource already exists, list it first and do not recreate it:
 
