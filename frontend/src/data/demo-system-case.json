@@ -1,0 +1,62 @@
+{
+  "id": "SYS-DEMO-001",
+  "projectId": "demo-project",
+  "schemaVersion": "1.0.0",
+  "workflowVersion": "1.0.0",
+  "contentLanguage": "pt",
+  "revision": "1",
+  "title": "Fila de atendimento (demonstração fictícia)",
+  "problem": "Aumento hipotético do tempo de espera",
+  "objective": "Explorar possíveis estruturas causais e opções de intervenção",
+  "status": "draft",
+  "scope": {
+    "horizon": "90 dias (hipótese ilustrativa)",
+    "included": ["entradas na fila", "atendimento", "pressão operacional"],
+    "excluded": ["economia regional", "política de preços"],
+    "stakeholders": ["utilizadores do serviço", "equipa de atendimento", "gestor do serviço"],
+    "methodFit": "high"
+  },
+  "evidence": [
+    {
+      "id": "EV-001",
+      "kind": "assumption",
+      "statement": "A estrutura causal e os valores são inteiramente ilustrativos; nenhuma medição foi recolhida.",
+      "status": "unverified",
+      "sourceId": null,
+      "documentTitle": null,
+      "location": null
+    }
+  ],
+  "iceberg": {
+    "events": [{ "text": "Alguns clientes esperam mais tempo (cenário hipotético).", "evidenceIds": ["EV-001"] }],
+    "patterns": [{ "text": "Hipótese de filas recorrentes em períodos de procura elevada; ainda sem série temporal.", "evidenceIds": ["EV-001"] }],
+    "structures": [{ "text": "Capacidade de serviço pode reagir à pressão causada pela fila com atraso.", "evidenceIds": ["EV-001"] }],
+    "mentalModels": [{ "text": "Hipótese: aumentar o ritmo de atendimento seria suficiente para resolver a fila.", "evidenceIds": ["EV-001"] }]
+  },
+  "variables": [
+    { "id": "V01", "name": "Taxa de chegadas", "kind": "flow", "unit": "pessoas/dia", "evidenceIds": ["EV-001"] },
+    { "id": "V02", "name": "Tamanho da fila", "kind": "stock", "unit": "pessoas", "evidenceIds": ["EV-001"] },
+    { "id": "V03", "name": "Pressão operacional", "kind": "auxiliary", "unit": "índice qualitativo", "evidenceIds": ["EV-001"] },
+    { "id": "V04", "name": "Taxa de atendimento", "kind": "flow", "unit": "pessoas/dia", "evidenceIds": ["EV-001"] }
+  ],
+  "relations": [
+    { "id": "L1", "sourceId": "V01", "targetId": "V02", "polarity": "+", "delay": "none", "status": "hypothesis", "evidenceIds": ["EV-001"], "disconfirmationTest": "Observar se chegadas adicionais aumentam a fila quando a taxa de atendimento é mantida constante." },
+    { "id": "L2", "sourceId": "V02", "targetId": "V03", "polarity": "+", "delay": "none", "status": "hypothesis", "evidenceIds": ["EV-001"], "disconfirmationTest": "Verificar se a pressão reportada permanece estável apesar do aumento da fila." },
+    { "id": "L3", "sourceId": "V03", "targetId": "V04", "polarity": "+", "delay": "possible", "status": "hypothesis", "evidenceIds": ["EV-001"], "disconfirmationTest": "Testar se a pressão elevada não se traduz em aumento da taxa de serviço." },
+    { "id": "L4", "sourceId": "V04", "targetId": "V02", "polarity": "-", "delay": "none", "status": "hypothesis", "evidenceIds": ["EV-001"], "disconfirmationTest": "Medir se maior atendimento não reduz o tamanho da fila quando as chegadas se mantêm constantes." }
+  ],
+  "loops": [{ "id": "B1", "relationIds": ["L2", "L3", "L4"], "classification": "balancing", "status": "hypothesis" }],
+  "hypotheses": [
+    { "id": "H1", "statement": "Se a taxa de chegada exceder de modo persistente a capacidade efetiva, a fila tenderá a aumentar.", "timeHorizon": "90 dias", "disconfirmationTest": "Medir diariamente chegadas, atendimentos e tamanho da fila para testar a relação de balanço de fluxo.", "evidenceIds": ["EV-001"] }
+  ],
+  "interventions": [
+    { "id": "A1", "action": "Medir entradas, saídas, tempos e qualidade antes de testar alterações de capacidade.", "owner": "a definir", "indicator": "tamanho da fila e tempo médio de espera", "checkpoint": "fim da segunda semana do piloto", "stopCondition": "suspender alterações se a segurança ou a qualidade se deteriorarem", "approvalRequired": true, "evidenceIds": ["EV-001"] }
+  ],
+  "simulation": { "status": "not_performed", "missingRequirements": ["observed time series", "validated equations", "units and initial conditions"], "validationEvidenceIds": [], "results": [] },
+  "review": {
+    "externalReviewer": null,
+    "externalEvidence": null,
+    "limitations": ["Exemplo fictício sem medições, validação de causalidade ou revisão externa."],
+    "nextGate": "Obter dados observados e confirmar relações causais com stakeholders."
+  }
+}

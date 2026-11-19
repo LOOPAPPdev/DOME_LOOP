@@ -1,40 +1,58 @@
-import type { AnalysisModel } from "../data/analysis"
+import type { AnalysisModel, CausalEdgeData, CausalNodeData } from "../data/analysis"
 
 type AnalysisRailProps = {
   model: AnalysisModel
   selectedNodeLabel: string
+  selectedNode?: CausalNodeData
+  selectedEdge?: CausalEdgeData
 }
 
-export function AnalysisRail({ model, selectedNodeLabel }: AnalysisRailProps) {
+export function AnalysisRail({ model, selectedNodeLabel, selectedNode, selectedEdge }: AnalysisRailProps) {
   return (
-    <aside className="analysis-rail panel-surface">
+    <aside className="analysis-rail panel-surface" aria-label="System inspector">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">03 / SYNTHESIS</p>
-          <h2>Analyst notes</h2>
+          <p className="eyebrow">03 / INSPECTOR</p>
+          <h2>System analysis</h2>
         </div>
-        <span className="confidence-ring">{Math.round(model.confidence * 100)}</span>
+        <span className="revision-chip">r{model.revision}</span>
       </div>
       <div className="question-block">
-        <span className="label">QUESTION</span>
-        <p>{model.question}</p>
+        <span className="label">PROBLEM</span>
+        <p lang={model.contentLanguage}>{model.question}</p>
       </div>
       <div className="answer-block">
-        <span className="label">GROUNDED READOUT</span>
-        <p>{model.answer}</p>
+        <span className="label">OBJECTIVE</span>
+        <p lang={model.contentLanguage}>{model.objective}</p>
       </div>
-      <div className="selected-node">
-        <span className="label">FOCUSED NODE</span>
-        <strong>{selectedNodeLabel}</strong>
-        <span>4 linked relationships · 2 evidence anchors</span>
+      {!selectedEdge && (
+        <div className="selected-node" aria-live="polite">
+          <span className="label">SELECTED VARIABLE</span>
+          <strong lang={selectedNode?.language ?? "en"}>{selectedNode?.label ?? selectedNodeLabel}</strong>
+          {selectedNode && <span><span lang="en">{selectedNode.variableId} · {selectedNode.kind} · </span><span lang={selectedNode.language}>{selectedNode.unit}</span><span lang="en"> · {selectedNode.status}</span></span>}
+          {selectedNode?.evidenceIds.length ? <span>Evidence: {selectedNode.evidenceIds.join(", ")}</span> : <span>No evidence reference attached.</span>}
+        </div>
+      )}
+      {selectedEdge && (
+        <div className="selected-node" aria-live="polite">
+          <span className="label">SELECTED RELATIONSHIP</span>
+          <strong>{selectedEdge.polarity} · {selectedEdge.status}</strong>
+          <span>Delay: {selectedEdge.delay}</span>
+          <span>Evidence: {selectedEdge.evidenceIds.join(", ") || "none"}</span>
+          <p lang={selectedEdge.language}>{selectedEdge.disconfirmationTest}</p>
+        </div>
+      )}
+      <div className="notes-section">
+        <span className="label">BEHAVIOUR HYPOTHESES</span>
+        {model.hypotheses.length ? model.hypotheses.map((hypothesis) => <p className="note-line" lang={model.contentLanguage} key={hypothesis}>{hypothesis}</p>) : <p>No hypotheses recorded.</p>}
       </div>
       <div className="notes-section">
-        <span className="label">HYPOTHESES TO TEST</span>
-        {model.hypotheses.map((hypothesis) => <p className="note-line" key={hypothesis}>{hypothesis}</p>)}
+        <span className="label">PROPOSED ROADMAP</span>
+        {model.interventions.length ? model.interventions.map((intervention) => <p className="note-line intervention" key={intervention}><span lang={model.contentLanguage}>{intervention}</span><span lang="en"> · approval required before real-world action</span></p>) : <p>No intervention proposal recorded.</p>}
       </div>
       <div className="notes-section">
-        <span className="label">REVERSIBLE MOVES</span>
-        {model.interventions.map((intervention) => <p className="note-line intervention" key={intervention}>{intervention}</p>)}
+        <span className="label">LIMITATIONS</span>
+        {model.limitations.map((limitation) => <p className="note-line" lang={model.contentLanguage} key={limitation}>{limitation}</p>)}
       </div>
     </aside>
   )

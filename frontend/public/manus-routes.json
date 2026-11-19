@@ -1,5 +1,12 @@
 {
   "routes": [
-    { "path": "/", "title": "Evidence Console" }
+    { "path": "/", "title": "Home", "priority": "P0" },
+    { "path": "/projects", "title": "Projects", "priority": "P0" },
+    { "path": "/projects/:projectId/systems/:systemId/app", "title": "System App", "priority": "P0", "mode": "editable" },
+    { "path": "/projects/:projectId/systems/:systemId/infographic", "title": "Infographic", "priority": "P1", "mode": "read-only" },
+    { "path": "/projects/:projectId/systems/:systemId/tutorial", "title": "Tutorial", "priority": "P1", "mode": "read-only" },
+    { "path": "/projects/:projectId/runs/:runId", "title": "Run trace", "priority": "P0" },
+    { "path": "/knowledge", "title": "Knowledge", "priority": "P1" },
+    { "path": "/settings", "title": "Settings", "priority": "P1" }
   ]
 }

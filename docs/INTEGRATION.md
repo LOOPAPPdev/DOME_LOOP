@@ -28,7 +28,11 @@ No unbounded autonomous loop. Never allow an LLM to decide its own source permis
 - Review interface for claims, CLD edges, model inputs and action approvals.
 
 ## System modeling schema
-`schemas/system_case.schema.json` is reused from the earlier LOOP systemic-analysis agent. Do not confuse a validated JSON structure with an empirically validated causal model.
+The current backend SystemCase schema is `agents/systemic_analysis/schemas/case.schema.json` on `feat/manus-agent-source-import`; it distinguishes schema version, workflow version and revision. Do not confuse a validated JSON structure with an empirically validated causal model. Public API/OpenAPI DTOs are not yet agreed or live.
+
+The frontend has a separate `frontend/schemas/system-case-view.schema.json` solely for its fictional, local demo provider. It uses camelCase and is intentionally **not** an adapter or assertion of wire compatibility with the backend's snake_case internal case. No request from the browser reaches the backend today. On the reviewed backend branch, `/analyze/logic` checks a static bearer token, while `/documents` and `/search` do not authenticate; none is exposed by the frontend BFF because there is no approved user identity/session provider, CSRF contract or tenant mapping yet.
+
+`schemas/system_case.schema.json` at this repository root is retained as a clearly labelled legacy unversioned fixture and is not the backend contract. The canonical internal versioned schema/example are in `loop-agentic-rag/agents/systemic_analysis/schemas/case.schema.json` and `cases/example/case.json`; that repository's `imported-source-ci` validates both the JSON Schema meta-schema and the versioned instance. This cross-repository documentation does not create a shared API DTO.
 
 ## Capability matrix
 | Capability | Prototype | Production target |

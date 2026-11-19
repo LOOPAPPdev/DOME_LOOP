@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://loop-dynamics.invalid/schemas/system-case-view-1.0.0.json",
+  "title": "LOOP Dynamics SystemCase frontend view model",
+  "description": "DTO de apresentação versionada para a demo frontend. Não é o contrato OpenAPI de produção nem prova de validade empírica.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "projectId", "schemaVersion", "workflowVersion", "contentLanguage", "revision", "title", "problem", "objective", "status", "scope", "evidence", "iceberg", "variables", "relations", "loops", "hypotheses", "interventions", "simulation", "review"],
+  "properties": {
+    "id": {"type": "string", "minLength": 3},
+    "projectId": {"type": "string", "minLength": 1},
+    "schemaVersion": {"const": "1.0.0"},
+    "workflowVersion": {"const": "1.0.0"},
+    "contentLanguage": {"type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$", "description": "Language tag for view-model display text; this is not a backend wire field."},
+    "revision": {"type": "string", "pattern": "^[1-9][0-9]*$", "description": "Revision token; the demo increments it in memory only."},
+    "title": {"type": "string", "minLength": 1},
+    "problem": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "review_ready", "externally_validated"], "description": "In this demo view-model, externally_validated is an untrusted structural claim and does not prove reviewer identity or resolve external evidence."},
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["horizon", "included", "excluded", "stakeholders", "methodFit"],
+      "properties": {
+        "horizon": {"type": "string"},
+        "included": {"type": "array", "items": {"type": "string"}},
+        "excluded": {"type": "array", "items": {"type": "string"}},
+        "stakeholders": {"type": "array", "items": {"type": "string"}},
+        "methodFit": {"enum": ["high", "medium", "low", "unknown"]}
+      }
+    },
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "iceberg": {
+      "type": "object", "additionalProperties": false,
+      "required": ["events", "patterns", "structures", "mentalModels"],
+      "properties": {
+        "events": {"$ref": "#/$defs/icebergItems"},
+        "patterns": {"$ref": "#/$defs/icebergItems"},
+        "structures": {"$ref": "#/$defs/icebergItems"},
+        "mentalModels": {"$ref": "#/$defs/icebergItems"}
+      }
+    },
+    "variables": {"type": "array", "items": {"$ref": "#/$defs/variable"}},
+    "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}},
+    "loops": {"type": "array", "items": {"$ref": "#/$defs/loop"}},
+    "hypotheses": {"type": "array", "items": {"$ref": "#/$defs/hypothesis"}},
+    "interventions": {"type": "array", "items": {"$ref": "#/$defs/intervention"}},
+    "simulation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "missingRequirements", "validationEvidenceIds", "results"],
+      "properties": {
+        "status": {"enum": ["not_performed", "blocked", "validated"]},
+        "missingRequirements": {"type": "array", "items": {"type": "string"}},
+        "validationEvidenceIds": {"type": "array", "items": {"type": "string"}},
+        "results": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["externalReviewer", "externalEvidence", "limitations", "nextGate"],
+      "properties": {
+        "externalReviewer": {"type": ["string", "null"]},
+        "externalEvidence": {"type": ["string", "null"]},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+        "nextGate": {"type": "string"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "externally_validated"}}, "required": ["status"]},
+      "then": {"properties": {"review": {"properties": {"externalReviewer": {"type": "string", "minLength": 1}, "externalEvidence": {"type": "string", "minLength": 1}}}}}
+    },
+    {
+      "if": {"properties": {"simulation": {"properties": {"status": {"const": "validated"}}, "required": ["status"]}}, "required": ["simulation"]},
+      "then": {"properties": {"simulation": {"properties": {"validationEvidenceIds": {"minItems": 1}, "results": {"minItems": 1}}}}}
+    },
+    {
+      "properties": {"evidence": {"items": {"if": {"properties": {"status": {"const": "verified"}}, "required": ["status"]}, "then": {"properties": {"sourceId": {"type": "string", "minLength": 1}}}}}}
+    },
+    {
+      "properties": {"relations": {"items": {"if": {"properties": {"status": {"const": "supported"}}, "required": ["status"]}, "then": {"properties": {"evidenceIds": {"minItems": 1}}}}}}
+    }
+  ],
+  "$defs": {
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "statement", "status", "sourceId", "documentTitle", "location"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^EV-"},
+        "kind": {"enum": ["observation", "measurement", "document", "interview", "assumption"]},
+        "statement": {"type": "string"},
+        "status": {"enum": ["verified", "unverified"]},
+        "sourceId": {"type": ["string", "null"]},
+        "documentTitle": {"type": ["string", "null"]},
+        "location": {"type": ["string", "null"]}
+      }
+    },
+    "icebergItems": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["text", "evidenceIds"], "properties": {"text": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}}},
+    "variable": {"type": "object", "additionalProperties": false, "required": ["id", "name", "kind", "unit", "evidenceIds"], "properties": {"id": {"type": "string", "pattern": "^V[0-9]+$"}, "name": {"type": "string"}, "kind": {"enum": ["stock", "flow", "auxiliary", "exogenous", "unknown"]}, "unit": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}},
+    "relation": {"type": "object", "additionalProperties": false, "required": ["id", "sourceId", "targetId", "polarity", "delay", "status", "evidenceIds", "disconfirmationTest"], "properties": {"id": {"type": "string", "pattern": "^L[0-9]+$"}, "sourceId": {"type": "string"}, "targetId": {"type": "string"}, "polarity": {"enum": ["+", "-", "unknown"]}, "delay": {"enum": ["none", "possible", "confirmed", "unknown"]}, "status": {"enum": ["hypothesis", "supported", "contradicted", "unverified"]}, "evidenceIds": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "disconfirmationTest": {"type": "string"}}},
+    "loop": {"type": "object", "additionalProperties": false, "required": ["id", "relationIds", "classification", "status"], "properties": {"id": {"type": "string", "pattern": "^[BRU][0-9]+$"}, "relationIds": {"type": "array", "minItems": 2, "items": {"type": "string"}}, "classification": {"enum": ["balancing", "reinforcing", "undetermined"]}, "status": {"enum": ["hypothesis", "supported", "contradicted", "unverified"]}}},
+    "hypothesis": {"type": "object", "additionalProperties": false, "required": ["id", "statement", "timeHorizon", "disconfirmationTest", "evidenceIds"], "properties": {"id": {"type": "string"}, "statement": {"type": "string"}, "timeHorizon": {"type": "string"}, "disconfirmationTest": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}},
+    "intervention": {"type": "object", "additionalProperties": false, "required": ["id", "action", "owner", "indicator", "checkpoint", "stopCondition", "approvalRequired", "evidenceIds"], "properties": {"id": {"type": "string"}, "action": {"type": "string"}, "owner": {"type": "string"}, "indicator": {"type": "string"}, "checkpoint": {"type": "string"}, "stopCondition": {"type": "string"}, "approvalRequired": {"type": "boolean"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}}
+  }
+}

@@ -1,15 +1,17 @@
 type StatusStripProps = {
   evidenceCount: number
-  simulation: "not_performed" | "validated"
+  simulation: "not_performed" | "blocked" | "validated"
+  revision: string
+  demo: boolean
 }
 
-export function StatusStrip({ evidenceCount, simulation }: StatusStripProps) {
+export function StatusStrip({ evidenceCount, simulation, revision, demo }: StatusStripProps) {
   return (
-    <footer className="status-strip">
-      <div className="status-item"><span className="status-key">EVIDENCE</span><strong>{String(evidenceCount).padStart(2, "0")} anchors</strong></div>
-      <div className="status-item"><span className="status-key">MODEL</span><strong>qualitative / v0.1</strong></div>
-      <div className="status-item status-warning"><span className="status-key">SIMULATION</span><strong>{simulation === "not_performed" ? "not performed" : "validated"}</strong></div>
-      <div className="status-item status-end"><span className="status-key">LAST RUN</span><strong>just now · local</strong></div>
+    <footer className="status-strip" aria-label="System status">
+      <div className="status-item"><span className="status-key">EVIDENCE</span><strong>{String(evidenceCount).padStart(2, "0")} record(s)</strong></div>
+      <div className="status-item"><span className="status-key">CASE</span><strong>revision r{revision}{demo ? " · local demo" : ""}</strong></div>
+      <div className="status-item status-warning"><span className="status-key">SIMULATION</span><strong>{simulation === "validated" ? "validated" : simulation === "blocked" ? "blocked by gate" : "not performed"}</strong></div>
+      <div className="status-item status-end"><span className="status-key">RUN</span><strong>{demo ? "no live run" : "status unavailable"}</strong></div>
     </footer>
   )
 }
