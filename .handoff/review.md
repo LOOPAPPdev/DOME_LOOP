@@ -55,3 +55,12 @@ Riscos de produção permanecem: `/documents` e `/search` do backend não têm a
 Ainda não existem contrato OpenAPI aprovado, IdP/session/tenant, BFF autenticado/CSRF, persistência autoritativa/ETag, API HTTP frontend, ACL real, RAG/agentes/ARI_00 integrados, request/logs/traces de ponta a ponta ou teste contra backend. A revisão manual de acessibilidade também está pendente. Portanto **LOOP-FE-001 não está completo**; somente a base visual/demo e os gates locais de Iteration A foram implementados e verificados.
 
 As alterações permanecem **não commitadas e não publicadas** nos dois repositórios. Não houve push, PR, merge, deploy, provisionamento ou inspeção de valores de secrets. Nesta auditoria não foram lidos nem copiados DBs, vetores, corpus ou credenciais privadas.
+
+
+## Issue #4 execution update — 2026-11-19
+
+Branch: `feat/issue-4-bff-contracts` (based on `MANUS@17dfe329e9a6aadfed9e094340eb69eba4c0ef86`). Iteration A files were not recreated or modified.
+
+Implemented locally: provider-neutral same-origin `/api/v1/*` Pages BFF with fail-closed configuration, signed session-cookie boundary, CSRF double-submit check for mutations, origin allowlist, request-size validation, rate limiting, upstream timeout, structured redacted trace errors; typed frontend client at `frontend/src/shared/api/client.ts`; identity/BFF ADR at `docs/ADR-IDENTITY-BFF.md`.
+
+Evidence limits: no IdP/session issuer, JWKS, tenant mapping or approved staging backend was supplied. Therefore live BFF-to-FastAPI authentication and E2E remain `BLOCKED`; this branch must not be called a production integration or deployment proof. Backend contract/auth implementation is in the separate `loop-agentic-rag` branch `feat/issue-10-provider-neutral-auth-acl`.
