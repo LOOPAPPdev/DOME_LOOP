@@ -48,7 +48,7 @@ function allowedOrigin(request: Request, env: Env): boolean {
 }
 
 async function validSession(request: Request, secret: string): Promise<boolean> {
-  const raw = request.headers.get("Cookie")?.match(/(?:^|;\\s*)loop_session=([^;]+)/u)?.[1];
+  const raw = request.headers.get("Cookie")?.match(/(?:^|;\s*)loop_session=([^;]+)/u)?.[1];
   if (!raw || raw.length > 4096) return false;
   const parts = raw.split(".");
   if (parts.length !== 2 || !parts[0] || !parts[1]) return false;
@@ -146,7 +146,7 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
       return json(422, "INVALID_REQUEST", "JSON body required", id);
     }
     const declaredLength = request.headers.get("Content-Length");
-    if (declaredLength !== null && (!/^\\d+$/u.test(declaredLength) || Number(declaredLength) > max)) {
+    if (declaredLength !== null && (!/^\d+$/u.test(declaredLength) || Number(declaredLength) > max)) {
       return json(413, "PAYLOAD_TOO_LARGE", "Request body exceeds configured limit", id);
     }
     try {
