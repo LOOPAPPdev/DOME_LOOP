@@ -41,19 +41,71 @@ function upstreamPath(context: PagesContext): string {
 function allowedOrigin(request: Request, env: Env): boolean {
   const origin = request.headers.get("Origin");
   const configured = env.LOOP_BFF_ALLOWED_ORIGINS?.split(",").map((item) => item.trim()).filter(Boolean);
-  if (!origin || !configured || configured.length === 0) return false;
+  if (!configured || configured.length === 0) return false;
+  // Browsers do not normally attach Origin to same-origin GET/HEAD requests.
+  if (!origin) return request.method === "GET" || request.method === "HEAD";
   return configured.includes(origin);
 }
 
 async function validSession(request: Request, secret: string): Promise<boolean> {
   const raw = request.headers.get("Cookie")?.match(/(?:^|;\s*)loop_session=([^;]+)/u)?.[1];
-  if (!raw) return false;
-  const [payload, encodedSignature] = raw.split(".");
-  if (!payload || !encodedSignature) return false;
-  const data = new TextEncoder().encode(payload);
-  const signature = Uint8Array.from(atob(encodedSignature.replaceAll("-", "+").replaceAll("_", "/")), (char) => char.charCodeAt(0));
-  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["verify"]);
-  return crypto.subtle.verify("HMAC", key, signature, data);
+  if (!raw || raw.length > 4096) return false;
+  const parts = raw.split(".");
+  if (parts.length !== 2 || !parts[0] || !parts[1]) return false;
+  try {
+    const [payload, encodedSignature] = parts;
+    const decoded = atob(payload.replaceAll("-", "+").replaceAll("_", "/"));
+    const claims = JSON.parse(decoded) as Record<string, unknown>;
+    const now = Math.floor(Date.now() / 1000);
+    if (
+      typeof claims.sub !== "string" || !claims.sub ||
+      typeof claims.tenant_id !== "string" || !claims.tenant_id ||
+      typeof claims.iat !== "number" || typeof claims.exp !== "number" ||
+      !Number.isInteger(claims.iat) || !Number.isInteger(claims.exp) ||
+      claims.iat > now + 30 || claims.exp <= now ||
+      claims.exp <= claims.iat || claims.exp - claims.iat > 3600
+    ) return false;
+    const signature = Uint8Array.from(
+      atob(encodedSignature.replaceAll("-", "+").replaceAll("_", "/")),
+      (char) => char.charCodeAt(0),
+    );
+    if (signature.length !== 32) return false;
+    const key = await crypto.subtle.importKey(
+      "raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["verify"],
+    );
+    return crypto.subtle.verify("HMAC", key, signature, new TextEncoder().encode(payload));
+  } catch {
+    // Malformed cookies must fail as 401, not throw a 500.
+    return false;
+  }
+}
+
+async function readLimitedBody(request: Request, max: number): Promise<ArrayBuffer | null> {
+  if (!request.body) return new ArrayBuffer(0);
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > max) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const result = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    result.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return result.buffer;
 }
 
 function csrfValid(request: Request): boolean {
@@ -84,17 +136,38 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   if (!(await validSession(request, env.LOOP_BFF_SESSION_SECRET))) return json(401, "UNAUTHENTICATED", "Authenticated session required", id);
   if (stateChanging.has(request.method) && !csrfValid(request)) return json(403, "CSRF_DENIED", "Valid CSRF token required", id);
   if (rateLimited(request)) return new Response(JSON.stringify({ error: { code: "RATE_LIMITED", message: "Retry later", trace_id: id } }), { status: 429, headers: { "Content-Type": "application/json", "Retry-After": "60", "Cache-Control": "no-store" } });
+  let body: ArrayBuffer | undefined;
   if (request.method !== "GET" && request.method !== "HEAD") {
     const max = Number(env.LOOP_BFF_MAX_BODY_BYTES ?? "1048576");
-    const length = Number(request.headers.get("Content-Length") ?? "0");
-    if (!request.headers.get("Content-Type")?.startsWith("application/json") || length > max) return json(422, "INVALID_REQUEST", "JSON body and size limit required", id);
+    if (!Number.isSafeInteger(max) || max < 1 || max > 10485760) {
+      return json(503, "BFF_NOT_CONFIGURED", "Invalid body limit", id);
+    }
+    if (!request.headers.get("Content-Type")?.startsWith("application/json")) {
+      return json(422, "INVALID_REQUEST", "JSON body required", id);
+    }
+    const declaredLength = request.headers.get("Content-Length");
+    if (declaredLength !== null && (!/^\d+$/u.test(declaredLength) || Number(declaredLength) > max)) {
+      return json(413, "PAYLOAD_TOO_LARGE", "Request body exceeds configured limit", id);
+    }
+    try {
+      const limited = await readLimitedBody(request, max);
+      if (limited === null) return json(413, "PAYLOAD_TOO_LARGE", "Request body exceeds configured limit", id);
+      body = limited;
+    } catch {
+      return json(400, "INVALID_REQUEST", "Could not read request body", id);
+    }
   }
   const upstream = new URL(upstreamPath(context), env.ANALYSIS_BACKEND_URL);
   const headers = new Headers(request.headers);
   headers.delete("Cookie");
   headers.delete("Host");
+  headers.delete("Content-Length");
+  headers.delete("Transfer-Encoding");
+  headers.delete("X-Tenant-ID");
+  headers.delete("X-Forwarded-For");
+  headers.delete("X-Forwarded-Host");
+  headers.delete("X-Forwarded-Proto");
   headers.set("X-Trace-ID", id);
-  const body = request.method === "GET" || request.method === "HEAD" ? undefined : await request.arrayBuffer();
   try {
     const response = await fetch(upstream, { method: request.method, headers, body, signal: AbortSignal.timeout(10_000) });
     const responseHeaders = new Headers(response.headers);
