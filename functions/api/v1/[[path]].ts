@@ -32,6 +32,12 @@ function pathOf(context: PagesContext): string {
   return parts.map((part) => encodeURIComponent(part)).join("/");
 }
 
+function upstreamPath(context: PagesContext): string {
+  const logicalPath = pathOf(context);
+  if (logicalPath === "analysis") return "/analysis/v1";
+  return `/v1/${logicalPath}`;
+}
+
 function allowedOrigin(request: Request, env: Env): boolean {
   const origin = request.headers.get("Origin");
   const configured = env.LOOP_BFF_ALLOWED_ORIGINS?.split(",").map((item) => item.trim()).filter(Boolean);
@@ -83,7 +89,7 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     const length = Number(request.headers.get("Content-Length") ?? "0");
     if (!request.headers.get("Content-Type")?.startsWith("application/json") || length > max) return json(422, "INVALID_REQUEST", "JSON body and size limit required", id);
   }
-  const upstream = new URL(`/v1/${pathOf(context)}`, env.ANALYSIS_BACKEND_URL);
+  const upstream = new URL(upstreamPath(context), env.ANALYSIS_BACKEND_URL);
   const headers = new Headers(request.headers);
   headers.delete("Cookie");
   headers.delete("Host");
